@@ -20,9 +20,24 @@
     "@element-ai/locale": "workspace:*",
     "@element-ai/theme-chalk": "workspace:*",
     "@element-ai/utils": "workspace:*",
+    "@types/mdast": "^4.0.4",
+    "mdast-util-to-hast": "^13.2.1",
+    "unplugin-vue-macros": "^2.14.5",
     "vitepress": "2.0.0-alpha.15"
   },
   "engines": {
     "node": ">= 20"
+  },
+  "dependencies": {
+    "dompurify": "^3.3.0",
+    "rehype-katex": "^7.0.1",
+    "rehype-stringify": "^10.0.1",
+    "remark-breaks": "^4.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.0.0"
   }
 }
