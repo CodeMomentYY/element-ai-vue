@@ -8,7 +8,12 @@ import remarkRehype from 'remark-rehype'
 import rehypeKatex from 'rehype-katex'
 import DOMPurify from 'dompurify'
 import { katexConfig } from '@element-ai/constants'
-import { remarkAbbr, remarkATargetBlank, remarkSubSuper } from './models'
+import {
+  remarkAbbr,
+  remarkATargetBlank,
+  remarkMarkHighlight,
+  remarkSubSuper,
+} from './models'
 
 export interface ProcessMarkdownOptions {
   onError?: (error: Error) => void
@@ -31,10 +36,10 @@ export const defaultCustomPlugins = [
   //     key: "remark-custom-highlight",
   //     plugin: remarkCustomHighlight,
   //   },
-  //   {
-  //     key: "remark-custom-mark-highlight",
-  //     plugin: remarkCustomMarkHighlight,
-  //   },
+  {
+    key: 'remark-mark-highlight',
+    plugin: remarkMarkHighlight,
+  },
   {
     key: 'remark-sub-super',
     plugin: remarkSubSuper,
