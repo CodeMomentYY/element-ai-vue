@@ -6,6 +6,7 @@
 import { commonLangs } from '@element-ai/constants'
 import { getHighlighter, HighlighterType } from '@element-ai/utils'
 import { onMounted, ref, watch } from 'vue'
+import { codeHighlightProps } from './props'
 
 const props = defineProps({
   content: {
@@ -16,12 +17,16 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  ...codeHighlightProps,
 })
 const htmlContent = ref('')
 const highlighter = ref<HighlighterType | null>(null)
 
 onMounted(async () => {
-  highlighter.value = await getHighlighter()
+  highlighter.value = await getHighlighter({
+    langs: props.extendLanguages || [],
+    themes: props.extendThemes || [],
+  })
 })
 
 watch(

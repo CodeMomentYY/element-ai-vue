@@ -31,8 +31,3 @@ export const getHighlighter = (options?: GetHighlighterOptions) => {
     })
   })
 }
-
-/** 页面加载就初始化一次方便后续快速加载 */
-window.addEventListener('load', () => {
-  getHighlighter()
-})
