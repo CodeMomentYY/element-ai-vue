@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /zh/markdown-examples
+      link: /zh/start
     - theme: alt
       text: 组件预览
-      link: /zh/api-examples
+      link: /zh/base/markdown
 ---
 
 ::: code-group

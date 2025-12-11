@@ -1,0 +1,66 @@
+import { DefaultTheme } from 'vitepress'
+
+export const zhSidebar: DefaultTheme.Sidebar = [
+  {
+    text: '',
+    items: [
+      { text: '快速开始', link: '/zh/start' },
+      { text: '简介', link: '/zh/intro' },
+    ],
+  },
+  {
+    text: '通用组件',
+    items: [
+      { text: 'Markdown', link: '/zh/base/markdown' },
+      { text: 'Sender 输入框', link: '/zh/base/sender' },
+      { text: 'BubbleList 气泡列表', link: '/zh/base/bubble-list' },
+    ],
+  },
+  {
+    text: '基础组件',
+    items: [
+      {
+        text: 'Markdown',
+        items: [
+          { text: 'CodeHighlight 代码高亮', link: '/zh/base/code-highlight' },
+          { text: 'CodeMermaid 图表', link: '/zh/base/code-mermaid' },
+          { text: 'CodeEcharts 图表', link: '/zh/base/code-echarts' },
+        ],
+      },
+      {
+        text: 'BubbleList 气泡列表',
+        items: [
+          { text: 'Bubble 对话气泡', link: '/zh/base/bubble' },
+          { text: 'Loading 生成中', link: '/zh/base/loading' },
+          {
+            text: 'ImageGeneration 图片生成',
+            link: '/zh/base/image-generation',
+          },
+          {
+            text: 'videoGeneration 图片生成',
+            link: '/zh/base/video-generation',
+          },
+          { text: 'Thinking 思考', link: '/zh/base/thinking' },
+          { text: 'ThoughtChain 思维链', link: '/zh/base/thought-chain' },
+        ],
+      },
+    ],
+  },
+  {
+    text: '文件组件',
+    items: [
+      { text: 'FilesUpload 文件上传', link: '/zh/base/files-upload' },
+      { text: 'Drag 拖拽上传', link: '/zh/base/drag' },
+      { text: 'FilesCard 文件卡片', link: '/zh/base/files-card' },
+    ],
+  },
+  {
+    text: '工具',
+    items: [{ text: 'Typewriter 打字器', link: '/zh/base/typewriter' }],
+  },
+  {
+    text: '实验室',
+    items: [{ text: 'ppt 编辑', link: '/zh/base/ppt' }],
+  },
+]
+export const enSidebar = []

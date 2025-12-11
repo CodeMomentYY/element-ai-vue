@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { zhSidebar } from './sidebar'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -22,15 +23,7 @@ export default defineConfig({
       link: '/zh/',
       themeConfig: {
         nav: [{ text: '首页', link: '/zh' }],
-        sidebar: [
-          {
-            text: '示例',
-            items: [
-              { text: '快速开始', link: '/zh/markdown-examples' },
-              { text: '组件预览', link: '/zh/api-examples' },
-            ],
-          },
-        ],
+        sidebar: zhSidebar,
       },
     },
     en: {

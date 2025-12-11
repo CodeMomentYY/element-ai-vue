@@ -23,7 +23,7 @@
       ></CodeHighlight>
     </slot>
     <slot
-      v-else="part.type === 'code'"
+      v-else-if="part.type === 'code'"
       name="code"
       :content="part.content"
       :language="part.language"
