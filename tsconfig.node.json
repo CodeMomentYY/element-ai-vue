@@ -6,6 +6,19 @@
     "types": ["node"],
     "skipLibCheck": true
   },
-  "include": ["docs/.vitepress/**/*.mts", "docs/.vitepress/**/*.ts"],
-  "exclude": ["docs/.vitepress/theme/**/*.ts"]
+  "include": [
+    "internal/**/*",
+    "internal/**/*.json",
+    "docs/.vitepress/**/*.mts",
+    "docs/.vitepress/**/*.ts",
+    "packages/theme-chalk/*",
+    "packages/element-ai/version.ts",
+    "packages/element-ai/package.json"
+  ],
+  "exclude": [
+    "docs/.vitepress/theme/**/*.ts",
+    "**/__tests__/**",
+    "**/tests/**",
+    "**/dist"
+  ]
 }

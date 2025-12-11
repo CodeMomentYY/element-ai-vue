@@ -5,13 +5,21 @@
     "packages/*"
   ],
   "scripts": {
+    "update:version": "cross-env TAG_VERSION=1.1.1 GIT_HEAD=2 tsx scripts/update-version.ts",
+    "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
+    "clean:dist": "rimraf dist",
+    "build": "pnpm run -C internal/build start",
+    "build:theme": "pnpm run -C packages/theme-chalk build",
     "dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "lint": "oxlint .",
     "lint:fix": "oxlint . --fix",
     "format": "prettier --write --experimental-cli .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "stub": "pnpm run -r --parallel stub",
+    "gen:version": "tsx scripts/gen-version.ts",
+    "postinstall": "pnpm stub && pnpm gen:version & pnpm run -C internal/metadata dev &"
   },
   "lint-staged": {
     "*.{js,ts,vue,json}": [
@@ -25,6 +33,7 @@
   "devDependencies": {
     "@commitlint/cli": "^20.2.0",
     "@commitlint/config-conventional": "^20.2.0",
+    "@element-ai/build-utils": "workspace:*",
     "@element-ai/components": "workspace:*",
     "@element-ai/constants": "workspace:*",
     "@element-ai/directives": "workspace:*",
@@ -32,12 +41,20 @@
     "@element-ai/locale": "workspace:*",
     "@element-ai/theme-chalk": "workspace:*",
     "@element-ai/utils": "workspace:*",
+    "@pnpm/find-workspace-packages": "^4.0.43",
+    "@types/fs-extra": "^11.0.4",
+    "@types/gulp": "^4.0.18",
     "@types/lodash-es": "^4.17.12",
     "@types/mdast": "^4.0.4",
     "@types/node": "^24.10.1",
+    "chalk": "^5.6.2",
+    "consola": "^2.15.3",
+    "cross-env": "^10.1.0",
     "github-markdown-css": "^5.8.1",
+    "gulp": "^4.0.2",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
+    "lodash-unified": "catalog:",
     "mdast-util-to-hast": "^13.2.1",
     "oxlint": "^1.31.0",
     "prettier": "^3.7.4",
