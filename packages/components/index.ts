@@ -1,2 +1,2 @@
-export * from './markdown'
+export * from './Markdown'
 export * from './code-highlight'

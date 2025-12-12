@@ -10,14 +10,14 @@ import esbuild from 'rollup-plugin-esbuild'
 import glob from 'fast-glob'
 import { epRoot, excludeFiles, pkgRoot } from '@element-ai/build-utils'
 import { generateExternal, withTaskName, writeBundles } from '../utils'
-import { ElementPlusAlias } from '../plugins/element-ai-alias'
+import { ElementAiAlias } from '../plugins/element-ai-alias'
 import { buildConfigEntries, target } from '../build-info'
 
 import type { TaskFunction } from 'gulp'
 import type { OutputOptions, Plugin } from 'rollup'
 
 const plugins: Plugin[] = [
-  ElementPlusAlias(),
+  ElementAiAlias(),
   VueMacros({
     setupComponent: false,
     setupSFC: false,
@@ -33,7 +33,7 @@ const plugins: Plugin[] = [
       }),
       vueJsx: vueJsx(),
     },
-  }),
+  }) as Plugin,
   nodeResolve({
     extensions: ['.mjs', '.js', '.json', '.ts'],
   }),
@@ -86,6 +86,7 @@ async function buildModulesStyles() {
       onlyFiles: true,
     })
   )
+
   const bundle = await rollup({
     input,
     plugins,

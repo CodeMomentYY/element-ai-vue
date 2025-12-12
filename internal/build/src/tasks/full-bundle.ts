@@ -17,7 +17,7 @@ import {
 } from '@element-ai/build-constants'
 import { epOutput, epRoot, localeRoot } from '@element-ai/build-utils'
 import { version } from '../../../../packages/element-ai/version'
-import { ElementPlusAlias } from '../plugins/element-ai-alias'
+import { ElementAiAlias } from '../plugins/element-ai-alias'
 import {
   formatBundleFilename,
   generateExternal,
@@ -33,7 +33,7 @@ const banner = `/*! ${PKG_BRAND_NAME} v${version} */\n`
 
 async function buildFullEntry(minify: boolean) {
   const plugins: Plugin[] = [
-    ElementPlusAlias(),
+    ElementAiAlias(),
     VueMacros({
       setupComponent: false,
       setupSFC: false,
@@ -49,7 +49,7 @@ async function buildFullEntry(minify: boolean) {
         }),
         vueJsx: vueJsx(),
       },
-    }),
+    }) as Plugin,
     nodeResolve({
       extensions: ['.mjs', '.js', '.json', '.ts'],
     }),

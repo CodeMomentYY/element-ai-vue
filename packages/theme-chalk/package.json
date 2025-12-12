@@ -8,6 +8,10 @@
     "theme-chalk",
     "theme-light"
   ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "gulp --require tsx/dist/loader.cjs"
+  },
   "license": "MIT",
   "main": "index.css",
   "unpkg": "index.css",
