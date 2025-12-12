@@ -17,18 +17,16 @@ hero:
 
 ::: code-group
 
-```bash [<img src="/icons/npm.svg" style="display: inline; vertical-align: middle; margin-right: 4px; width: 16px; height: 16px;" /> npm]
+```sh [npm]
 $ npm install element-ai
 ```
 
-```bash [<img src="/icons/pnpm.svg" style="display: inline; vertical-align: middle; margin-right: 4px; width: 16px; height: 16px;" /> pnpm]
+```sh [pnpm]
 $ pnpm install element-ai
 ```
 
-```bash [<img src="/icons/yarn.svg" style="display: inline; vertical-align: middle; margin-right: 4px; width: 16px; height: 16px;" /> yarn]
+```sh [yarn]
 $ yarn add element-ai
 ```
 
 :::
-
-<DemoComponent />

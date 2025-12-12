@@ -1,11 +1,25 @@
 import { defineConfig } from 'vitepress'
 import { zhSidebar } from './sidebar'
+import {
+  groupIconMdPlugin,
+  groupIconVitePlugin,
+} from 'vitepress-plugin-group-icons'
+import { demoblockPlugin, demoblockVitePlugin } from 'vitepress-theme-demoblock'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'element-ai',
 
   description: '企业级 AI 交互组件库',
+  markdown: {
+    config(md) {
+      md.use(demoblockPlugin)
+      md.use(groupIconMdPlugin)
+    },
+  },
+  vite: {
+    plugins: [groupIconVitePlugin(), demoblockVitePlugin()],
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: { src: '/logo.svg', width: 30, height: 30 },
