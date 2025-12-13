@@ -4,4 +4,17 @@ Markdown 组件。
 
 ## 基础用法
 
-<DemoComponent />
+:::demo
+
+```vue
+<template>
+  <DemoComponent />
+</template>
+```
+
+:::
+
+
+<demo-block>
+   <DemoComponent />
+</demo-block>
