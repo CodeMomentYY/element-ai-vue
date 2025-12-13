@@ -4,26 +4,10 @@ Markdown 组件。
 
 ## 基础用法
 
-:::demo
+:::demo DemoComponent
 
 ```vue
-<template>
-  <DemoComponent />
-</template>
+<!-- @include: ../../components/DemoComponent.vue -->
 ```
 
 :::
-
-:::demo `offset` attribute to change the offset top，the default
-
-```vue
-<template>
-  <DemoComponent />
-</template>
-```
-
-:::
-
-<demo-block>
-   <DemoComponent />
-</demo-block>
