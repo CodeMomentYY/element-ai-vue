@@ -2,7 +2,8 @@ import { MAX_SCALE, MIN_SCALE, ZOOM_SPEED } from '@element-ai-vue/constants'
 import { ref, ShallowRef } from 'vue'
 
 export const useWheelZoom = (
-  previewRef: Readonly<ShallowRef<HTMLElement | null>>
+  previewRef: Readonly<ShallowRef<HTMLElement | null>>,
+  props: { disabledWheelZoom?: boolean } = {}
 ) => {
   const scale = ref(1)
   const translateX = ref(0)
@@ -23,6 +24,9 @@ export const useWheelZoom = (
   }
 
   const onWheel = (e: WheelEvent) => {
+    if (props.disabledWheelZoom) {
+      return
+    }
     const delta = e.deltaY > 0 ? -ZOOM_SPEED : ZOOM_SPEED
     const newScale = Math.max(
       MIN_SCALE,
@@ -48,6 +52,9 @@ export const useWheelZoom = (
   }
 
   const onMouseDown = (e: MouseEvent) => {
+    if (props.disabledWheelZoom) {
+      return
+    }
     const startX = e.clientX
     const startY = e.clientY
     const initialTranslateX = translateX.value

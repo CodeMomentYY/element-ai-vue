@@ -84,8 +84,8 @@
       v-show="!isCodeView"
       ref="previewRef"
       :class="ns.e('preview')"
-      @wheel.prevent="props.disabledWheelZoom ? undefined : onWheel"
-      @mousedown="props.disabledWheelZoom ? undefined : onMouseDown"
+      @wheel.prevent="onWheel"
+      @mousedown="onMouseDown"
     >
       <div
         :style="{
@@ -155,7 +155,7 @@ const {
   resetZoom,
   onWheel,
   onMouseDown,
-} = useWheelZoom(previewRef)
+} = useWheelZoom(previewRef, props)
 const pageIsFullscreen = ref(false)
 const { isFullscreen: webIsFullscreen, toggle } = useFullscreen()
 const htmlContent = ref('')
