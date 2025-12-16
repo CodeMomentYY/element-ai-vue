@@ -60,6 +60,14 @@ async function buildModulesComponents() {
     plugins,
     external: await generateExternal({ full: false }),
     treeshake: { moduleSideEffects: false },
+    onwarn(warning, warn) {
+      if (warning.code === 'CIRCULAR_DEPENDENCY') {
+        if (warning.message.includes('node_modules')) {
+          return
+        }
+      }
+      warn(warning)
+    },
   })
 
   await writeBundles(

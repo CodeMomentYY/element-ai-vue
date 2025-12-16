@@ -69,6 +69,7 @@ async function buildFullEntry(minify: boolean) {
     }),
     replace({
       'process.env.NODE_ENV': '"production"',
+      preventAssignment: true,
     }),
   ]
   if (minify) {
@@ -85,6 +86,14 @@ async function buildFullEntry(minify: boolean) {
     plugins,
     external: await generateExternal({ full: true }),
     treeshake: true,
+    onwarn(warning, warn) {
+      if (warning.code === 'CIRCULAR_DEPENDENCY') {
+        if (warning.message.includes('node_modules')) {
+          return
+        }
+      }
+      warn(warning)
+    },
   })
   await writeBundles(bundle, [
     {

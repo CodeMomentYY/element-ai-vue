@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, onUnmounted, ref } from 'vue'
+import { ref } from 'vue'
 import { ElAMarkdown } from '@element-ai-vue/components'
 
 const content = ref(`

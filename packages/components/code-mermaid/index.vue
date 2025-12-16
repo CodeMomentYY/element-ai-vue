@@ -209,8 +209,7 @@ const onCopy = () => {
 const toggleView = () => {
   isCodeView.value = !isCodeView.value
 }
-
-const downloadPng = debounce(
+const debounceDwonloadPng = debounce(
   () => {
     if (!previewRef.value) return
     const svgElement = previewRef.value.querySelector('svg')
@@ -222,6 +221,10 @@ const downloadPng = debounce(
     leading: true,
   }
 )
+
+const downloadPng = () => {
+  debounceDwonloadPng()
+}
 
 watch(isFullscreen, (val) => {
   if (val) {
