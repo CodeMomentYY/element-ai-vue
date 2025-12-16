@@ -61,10 +61,7 @@ import {
   defaultCustomPlugins,
   createBaseProcessor,
 } from '@element-ai-vue/utils'
-import {
-  CodeHighlightThemeMap,
-  CodeMermaidThemeMap,
-} from '@element-ai-vue/constants'
+import { CodeMermaidThemeMap } from '@element-ai-vue/constants'
 import { mergeWith } from 'lodash-es'
 import { watch, ref, computed } from 'vue'
 import CodeHighlight from '../code-highlight/index.vue'
