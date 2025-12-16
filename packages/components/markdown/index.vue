@@ -1,41 +1,39 @@
 <template>
-  <template v-for="(part, index) in parts" :key="index">
-    <slot
-      v-if="part.type === 'code' && part.language === 'echarts'"
-      name="echarts"
-      :content="part.content"
-      :language="part.language"
-    >
-      <CodeHighlight
+  <div :class="[ns.b(), props.theme === 'dark' ? ns.m('dark') : '']">
+    <template v-for="(part, index) in parts" :key="index">
+      <slot
+        v-if="part.type === 'code' && part.language === 'mermaid'"
+        name="mermaid"
         :content="part.content"
         :language="part.language"
-      ></CodeHighlight>
-    </slot>
-    <slot
-      v-else-if="part.type === 'code' && part.language === 'mermaid'"
-      name="mermaid"
-      :content="part.content"
-      :language="part.language"
-    >
-      <CodeMermaid
-        :content="part.content"
-        v-bind="codeMermaidProps"
-      ></CodeMermaid>
-    </slot>
-    <slot
-      v-else-if="part.type === 'code'"
-      name="code"
-      :content="part.content"
-      :language="part.language"
-    >
-      <CodeHighlight
+      >
+        <CodeMermaid
+          :content="part.content"
+          :theme="CodeMermaidThemeMap[theme] || 'default'"
+          v-bind="codeMermaidProps"
+        ></CodeMermaid>
+      </slot>
+      <slot
+        v-else-if="part.type === 'code'"
+        name="code"
         :content="part.content"
         :language="part.language"
-        v-bind="codeHighlightProps"
-      ></CodeHighlight>
-    </slot>
-    <div class="markdown-body" v-else v-html="part.content"></div>
-  </template>
+      >
+        <CodeHighlight
+          :content="part.content"
+          :language="part.language"
+          :theme="CodeHighlightThemeMap[theme] || 'github-light'"
+          v-bind="codeHighlightProps"
+        ></CodeHighlight>
+      </slot>
+      <div
+        class="markdown-body"
+        data-theme="dark"
+        v-else
+        v-html="part.content"
+      ></div>
+    </template>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -45,34 +43,23 @@ defineOptions({
 import {
   processMarkdownToParts,
   MarkdownPart,
-  MiddlewarePluginItem,
   defaultCustomPlugins,
   createBaseProcessor,
 } from '@element-ai-vue/utils'
+import {
+  CodeHighlightThemeMap,
+  CodeMermaidThemeMap,
+} from '@element-ai-vue/constants'
 import { mergeWith } from 'lodash-es'
-import { watch, ref, computed, PropType } from 'vue'
+import { watch, ref, computed } from 'vue'
 import CodeHighlight from '../code-highlight/index.vue'
 import CodeMermaid from '../code-mermaid/index.vue'
-import { CodeHighlightPropsType } from '../code-highlight/props'
-import { CodeMermaidPropsType } from '../code-mermaid/props'
+import { markdownProps } from './props'
+import { useNamespace } from '@element-ai-vue/hooks'
 
+const ns = useNamespace('markdown')
 const props = defineProps({
-  content: {
-    type: String,
-    default: '',
-  },
-  remarkPlugins: {
-    type: Array as PropType<MiddlewarePluginItem[]>,
-    default: () => [],
-  },
-  codeHighlightProps: {
-    type: Object as CodeHighlightPropsType,
-    default: () => ({}),
-  },
-  codeMermaidProps: {
-    type: Object as CodeMermaidPropsType,
-    default: () => ({}),
-  },
+  ...markdownProps,
 })
 const parts = ref<MarkdownPart[]>([])
 

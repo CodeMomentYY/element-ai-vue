@@ -5,7 +5,6 @@ declare module 'vue' {
     ElACodeHighlight: (typeof import('element-ai-vue'))['ElACodeHighlight']
     ElABubbleList: (typeof import('element-ai-vue'))['ElABubbleList']
     ElABubble: (typeof import('element-ai-vue'))['ElABubble']
-    ElACodeEcharts: (typeof import('element-ai-vue'))['ElACodeEcharts']
     ElACodeMermaid: (typeof import('element-ai-vue'))['ElACodeMermaid']
     ElADrag: (typeof import('element-ai-vue'))['ElADrag']
     ElAFilesCard: (typeof import('element-ai-vue'))['ElAFilesCard']

@@ -6,10 +6,21 @@
 
 html.dark {
   @include dark-style;
+  @include dark-markdown;
 }
 
 @include b(code-highlight) {
-  &.#{$namespace}-dark {
+  &.#{$namespace}-code-highlight--dark {
     @include dark-style;
+  }
+}
+@include b(code-mermaid) {
+  &.#{$namespace}-code-mermaid--dark {
+    @include dark-style;
+  }
+}
+@include b(markdown) {
+  &.#{$namespace}--dark {
+    @include dark-markdown;
   }
 }

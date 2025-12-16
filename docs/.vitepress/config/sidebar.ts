@@ -24,7 +24,6 @@ export const zhSidebar: DefaultTheme.Sidebar = [
         items: [
           { text: 'CodeHighlight 代码高亮', link: '/zh/base/code-highlight' },
           { text: 'CodeMermaid 图表', link: '/zh/base/code-mermaid' },
-          { text: 'CodeEcharts 图表', link: '/zh/base/code-echarts' },
         ],
       },
       {
@@ -87,7 +86,6 @@ export const enSidebar: DefaultTheme.Sidebar = [
         items: [
           { text: 'CodeHighlight', link: '/en/base/code-highlight' },
           { text: 'CodeMermaid', link: '/en/base/code-mermaid' },
-          { text: 'CodeEcharts', link: '/en/base/code-echarts' },
         ],
       },
       {

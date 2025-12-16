@@ -16,6 +16,7 @@ export const commonLangs: (BundledLanguage | string)[] = [
   'go',
   'sql',
   'rust',
+  'mermaid',
 ]
 
 export const commonThemes: BundledTheme[] = ['github-dark', 'github-light']

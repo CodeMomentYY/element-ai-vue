@@ -1,5 +1,5 @@
 <template>
-  <div :class="ns.b()">
+  <div :class="[ns.b(), props.theme === 'github-dark' ? ns.m('dark') : '']">
     <slot
       name="header"
       :content="content"
@@ -64,6 +64,10 @@ onMounted(async () => {
     langs: props.extendLanguages || [],
     themes: props.extendThemes || [],
   })
+})
+
+defineExpose({
+  onCopy,
 })
 
 watch(

@@ -1,5 +1,11 @@
 <template>
-  <div :class="[ns.b(), isFullscreen ? ns.e('fullscreen') : '']">
+  <div
+    :class="[
+      ns.b(),
+      props.theme === 'dark' ? ns.m('dark') : '',
+      isFullscreen ? ns.e('fullscreen') : '',
+    ]"
+  >
     <slot v-if="isFullscreen" name="fullscreen-toolbar" v-bind="slotParams">
       <div :class="ns.em('fullscreen', 'toolbar')">
         <div :class="ns.em('fullscreen', 'action-group')">
@@ -176,12 +182,12 @@ const config = computed(() => {
     theme: props.theme,
   }
 })
-mermaid.initialize(config.value)
 onMounted(() => {
   render()
 })
 const render = async () => {
   if (!props.content) return
+  mermaid.initialize(config.value)
   try {
     const { svg } = await mermaid.render(`mermaid-${Date.now()}`, props.content)
     htmlContent.value = svg
@@ -235,8 +241,17 @@ watch(isFullscreen, (val) => {
 })
 
 watch([() => props.content, () => props.theme], () => {
-  mermaid.initialize(config.value)
   render()
+})
+
+defineExpose({
+  toggleView,
+  zoomIn,
+  zoomOut,
+  resetZoom,
+  toggleFullscreen,
+  downloadPng,
+  onCopy,
 })
 
 const slotParams = computed(() => ({

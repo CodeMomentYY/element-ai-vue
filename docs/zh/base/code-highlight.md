@@ -97,8 +97,18 @@ console.log(getRandomInt(1, 10)); // 输出：1~10 之间的随机数`)
 
 :::
 
+## 单独配置主题色
+
+:::demo CodeHighlightDark
+
+```vue
+<!-- @include: ../../examples/code-highlight/dark.vue -->
+```
+
+:::
+
 ::: tip
-默认支持,language: `javascript`, `typescript`, `vue`, `html`, `css`,`json`, `bash`, `shell`, `yaml`, `markdown`,`python`, `java`, `go`, `sql`, `rust`
+默认支持,language: `javascript`, `typescript`, `vue`, `html`, `css`,`json`, `bash`, `shell`, `yaml`, `markdown`,`python`, `java`, `go`, `sql`, `rust`, `mermaid`
 :::
 
 ## props
@@ -116,3 +126,9 @@ console.log(getRandomInt(1, 10)); // 输出：1~10 之间的随机数`)
 | 插槽名 | 说明           | 插槽参数                                                                                                                                    |
 | :----- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
 | header | 自定义头部内容 | `content`: 代码内容<br>`language`: 语言<br>`isCopied`: 表示已经复制，避免它连续复制会有1s的间隔时间让他复制下一次<br>`onCopy`: 复制代码函数 |
+
+## ref
+
+| 方法名 | 说明     | 参数 |
+| :----- | :------- | :--- |
+| onCopy | 复制代码 | -    |

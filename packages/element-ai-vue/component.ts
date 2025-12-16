@@ -2,7 +2,6 @@ import { ElAMarkdown } from '@element-ai-vue/components/markdown'
 import { ElACodeHighlight } from '@element-ai-vue/components/code-highlight'
 import { ElABubbleList } from '@element-ai-vue/components/bubble-list'
 import { ElABubble } from '@element-ai-vue/components/bubble'
-import { ElACodeEcharts } from '@element-ai-vue/components/code-echarts'
 import { ElACodeMermaid } from '@element-ai-vue/components/code-mermaid'
 import { ElADrag } from '@element-ai-vue/components/drag'
 import { ElAFilesCard } from '@element-ai-vue/components/files-card'
@@ -23,7 +22,6 @@ export default [
   ElACodeHighlight,
   ElABubbleList,
   ElABubble,
-  ElACodeEcharts,
   ElACodeMermaid,
   ElADrag,
   ElAFilesCard,
