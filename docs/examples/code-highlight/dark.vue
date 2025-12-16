@@ -2,7 +2,7 @@
   <ElACodeHighlight
     language="javascript"
     :content="content"
-    theme="github-dark"
+    theme="dark"
   ></ElACodeHighlight>
 </template>
 

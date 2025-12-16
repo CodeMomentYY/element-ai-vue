@@ -113,13 +113,13 @@ console.log(getRandomInt(1, 10)); // 输出：1~10 之间的随机数`)
 
 ## props
 
-| 属性名          | 类型                | 必填 | 默认值         | 描述                                                                          |
-| :-------------- | :------------------ | :--- | :------------- | :---------------------------------------------------------------------------- |
-| content         | `string`            | 是   | —              | 需要高亮的代码内容                                                            |
-| language        | `string`            | 否   | —              | 代码语言                                                                      |
-| theme           | `string`            | 否   | `github-light` | 高亮主题，默认支持 `github-light`, `github-dark`                              |
-| extendLanguages | `BundledLanguage[]` | 否   | `[]`           | 需要额外加载的语言列表，详见 [Shiki Languages](https://shiki.style/languages) |
-| extendThemes    | `BundledTheme[]`    | 否   | `[]`           | 需要额外加载的主题列表，详见 [Shiki Themes](https://shiki.style/themes)       |
+| 属性名          | 类型                | 必填 | 默认值  | 描述                                                                          |
+| :-------------- | :------------------ | :--- | :------ | :---------------------------------------------------------------------------- |
+| content         | `string`            | 是   | —       | 需要高亮的代码内容                                                            |
+| language        | `string`            | 否   | —       | 代码语言                                                                      |
+| theme           | `string`            | 否   | `light` | 高亮主题，默认支持 `light`、`dark`                                            |
+| extendLanguages | `BundledLanguage[]` | 否   | `[]`    | 需要额外加载的语言列表，详见 [Shiki Languages](https://shiki.style/languages) |
+| extendThemes    | `BundledTheme[]`    | 否   | `[]`    | 需要额外加载的主题列表，详见 [Shiki Themes](https://shiki.style/themes)       |
 
 ## slot
 

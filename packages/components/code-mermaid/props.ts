@@ -10,11 +10,15 @@ export const codeMermaidtProps = {
     type: Boolean,
     default: false,
   },
+  disabledFullscreenWheelZoom: {
+    type: Boolean,
+    default: false,
+  },
   mermaidConfig: {
     type: Object as PropType<MermaidConfig>,
     default: () => ({}),
   },
 }
 export type CodeMermaidPropsType = PropType<
-  ExtractPropTypes<typeof codeMermaidtProps>
+  Partial<ExtractPropTypes<typeof codeMermaidtProps>>
 >

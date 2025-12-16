@@ -90,7 +90,7 @@
       v-show="!isCodeView"
       ref="previewRef"
       :class="ns.e('preview')"
-      @wheel.prevent="onWheel"
+      @wheel="onWheel"
       @mousedown="onMouseDown"
     >
       <div
@@ -152,16 +152,7 @@ defineOptions({
 const ns = useNamespace('code-mermaid')
 const previewRef = useTemplateRef<HTMLElement>('previewRef')
 const { isCopied, onCopy: copyContent } = useCopy()
-const {
-  scale,
-  translateX,
-  translateY,
-  zoomIn,
-  zoomOut,
-  resetZoom,
-  onWheel,
-  onMouseDown,
-} = useWheelZoom(previewRef, props)
+
 const pageIsFullscreen = ref(false)
 const { isFullscreen: webIsFullscreen, toggle } = useFullscreen()
 const htmlContent = ref('')
@@ -174,6 +165,16 @@ const isFullscreen = computed(() => {
     return pageIsFullscreen.value
   }
 })
+const {
+  scale,
+  translateX,
+  translateY,
+  zoomIn,
+  zoomOut,
+  resetZoom,
+  onWheel,
+  onMouseDown,
+} = useWheelZoom(previewRef, props, isFullscreen)
 
 const config = computed(() => {
   return {
@@ -236,6 +237,10 @@ watch(isFullscreen, (val) => {
   if (val) {
     document.body.style.overflow = 'hidden'
   } else {
+    /** 如果进入全屏移动之后，退出全屏因为不能操作所以重置一下 */
+    if (props.disabledWheelZoom && !props.disabledFullscreenWheelZoom) {
+      resetZoom()
+    }
     document.body.style.overflow = ''
   }
 })

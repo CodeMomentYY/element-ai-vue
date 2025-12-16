@@ -47,6 +47,10 @@ export default defineConfig({
           __dirname,
           '../../../packages/locale'
         ),
+        '@element-ai-vue/theme-chalk': path.resolve(
+          __dirname,
+          '../../../packages/theme-chalk'
+        ),
         'element-ai-vue': path.resolve(
           __dirname,
           '../../../packages/element-ai-vue'

@@ -1,5 +1,5 @@
 <template>
-  <div :class="[ns.b(), props.theme === 'github-dark' ? ns.m('dark') : '']">
+  <div :class="[ns.b(), props.theme === 'dark' ? ns.m('dark') : '']">
     <slot
       name="header"
       :content="content"
@@ -29,7 +29,7 @@
 defineOptions({
   name: 'ElACodeHighlight',
 })
-import { commonLangs } from '@element-ai-vue/constants'
+import { CodeHighlightThemeMap, commonLangs } from '@element-ai-vue/constants'
 import { useCopy, useNamespace } from '@element-ai-vue/hooks'
 import { getHighlighter, HighlighterType } from '@element-ai-vue/utils'
 import { onMounted, ref, watch } from 'vue'
@@ -47,7 +47,7 @@ const props = defineProps({
   },
   theme: {
     type: String,
-    default: 'github-light',
+    default: 'light',
   },
   ...codeHighlightProps,
 })
@@ -77,7 +77,8 @@ watch(
     const hasLang = commonLangs.includes(props.language || '')
     const html = await highlighter.value.codeToHtml(props.content, {
       lang: hasLang ? props.language : 'plaintext',
-      theme: props.theme || 'github-light',
+      theme:
+        CodeHighlightThemeMap[props.theme] || props.theme || 'github-light',
     })
     htmlContent.value = html
   },

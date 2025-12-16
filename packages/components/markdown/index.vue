@@ -6,28 +6,43 @@
         name="mermaid"
         :content="part.content"
         :language="part.language"
+        :theme="CodeMermaidThemeMap[theme] || 'default'"
+        v-bind="codeMermaidProps"
       >
         <CodeMermaid
           :content="part.content"
           :theme="CodeMermaidThemeMap[theme] || 'default'"
           v-bind="codeMermaidProps"
-        ></CodeMermaid>
+        >
+          <template #toolbar="props">
+            <slot name="code-mermaid-toolbar" v-bind="props"></slot>
+          </template>
+          <template #fullscreen-toolbar="props">
+            <slot name="code-mermaid-fullscreen-toolbar" v-bind="props"></slot>
+          </template>
+        </CodeMermaid>
       </slot>
       <slot
         v-else-if="part.type === 'code'"
         name="code"
         :content="part.content"
         :language="part.language"
+        :theme
+        v-bind="codeHighlightProps"
       >
         <CodeHighlight
           :content="part.content"
           :language="part.language"
-          :theme="CodeHighlightThemeMap[theme] || 'github-light'"
+          :theme
           v-bind="codeHighlightProps"
-        ></CodeHighlight>
+        >
+          <template #header="props">
+            <slot name="code-highlight-header" v-bind="props"></slot>
+          </template>
+        </CodeHighlight>
       </slot>
       <div
-        class="markdown-body"
+        :class="[ns.e('markdown-body'), 'markdown-body']"
         data-theme="dark"
         v-else
         v-html="part.content"

@@ -2,7 +2,7 @@
   <ElACodeHighlight
     language="javascript"
     :content="content"
-    :theme="isDark ? 'github-dark' : 'github-light'"
+    :theme="isDark ? 'dark' : 'light'"
   >
     <template #header="{ content, language, isCopied, onCopy }">
       <div class="header">

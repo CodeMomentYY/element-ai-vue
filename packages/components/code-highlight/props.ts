@@ -13,5 +13,5 @@ export const codeHighlightProps = {
 }
 
 export type CodeHighlightPropsType = PropType<
-  ExtractPropTypes<typeof codeHighlightProps>
+  Partial<ExtractPropTypes<typeof codeHighlightProps>>
 >

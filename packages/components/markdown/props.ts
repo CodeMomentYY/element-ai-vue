@@ -1,5 +1,5 @@
 import { MiddlewarePluginItem } from '@element-ai-vue/utils'
-import { PropType } from 'vue'
+import { ExtractPropTypes, PropType } from 'vue'
 import { CodeHighlightPropsType } from '../code-highlight/props'
 import { CodeMermaidPropsType } from '../code-mermaid/props'
 
@@ -25,3 +25,7 @@ export const markdownProps = {
     default: () => ({}),
   },
 }
+
+export type MarkdownPropsType = PropType<
+  Partial<ExtractPropTypes<typeof markdownProps>>
+>

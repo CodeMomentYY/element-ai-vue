@@ -1,6 +1,6 @@
 import { MermaidConfig } from 'mermaid'
 
-export const CodeHighlightThemeMap = {
+export const CodeHighlightThemeMap: Record<string, string> = {
   dark: 'github-dark',
   light: 'github-light',
 }
