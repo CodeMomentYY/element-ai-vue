@@ -1,5 +1,12 @@
 <template>
-  <editor-content :editor="editor" />
+  <div>
+    <!-- <Skill
+      v-if="showSkill && skillValue"
+      :value="skillValue"
+      @remove-skill="handleRemoveSkill"
+    ></Skill> -->
+    <editor-content :editor="editor" />
+  </div>
 </template>
 
 <script setup lang="ts">
