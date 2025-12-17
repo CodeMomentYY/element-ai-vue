@@ -18,6 +18,14 @@ export const senderProps = {
     type: String,
     default: '',
   },
+  value: {
+    type: String,
+    default: '',
+  },
+  showInputTagPrefix: {
+    type: Boolean,
+    default: false,
+  },
 }
 
 export type SenderPropsType = PropType<

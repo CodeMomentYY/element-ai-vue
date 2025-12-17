@@ -28,18 +28,10 @@ const props = defineProps({
   ...senderProps,
 })
 
-const content = defineModel({
-  type: String,
-  default: '',
-})
-
-const showInputTagPrefix = defineModel('showInputTagPrefix', {
-  default: false,
-  type: Boolean,
-})
+const emits = defineEmits(['update:value', 'update:showInputTagPrefix'])
 
 const editor = useEditor({
-  content: content.value,
+  content: props.value,
   editable: !props.disabled,
   extensions: [
     Document,
@@ -58,7 +50,7 @@ const editor = useEditor({
 })
 
 const closeInputTagPrefix = () => {
-  showInputTagPrefix.value = false
+  emits('update:showInputTagPrefix', false)
 }
 
 watch(
@@ -75,11 +67,14 @@ watch(
   }
 )
 
-watch(content, (newContent) => {
-  const isSame = editor.value?.getHTML() === newContent
-  if (isSame) return
-  editor.value?.commands.setContent(newContent)
-})
+watch(
+  () => props.value,
+  (newContent) => {
+    const isSame = editor.value?.getHTML() === newContent
+    if (isSame) return
+    editor.value?.commands.setContent(newContent)
+  }
+)
 
 defineExpose({
   editor,
