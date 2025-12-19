@@ -57,9 +57,9 @@ const lable = computed(() => {
   )
 })
 
-const handleChange = (val: string) => {
-  if (typeof val === 'string') {
-    props.updateAttributes({ value: val })
-  }
-}
+// const handleChange = (val: string) => {
+//   if (typeof val === 'string') {
+//     props.updateAttributes({ value: val })
+//   }
+// }
 </script>
