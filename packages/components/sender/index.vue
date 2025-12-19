@@ -48,19 +48,19 @@
 defineOptions({
   name: 'ElASender',
 })
-import { computed, useSlots, useTemplateRef, provide } from 'vue'
+import { computed, useTemplateRef, provide } from 'vue'
 import { useNamespace } from '@element-ai-vue/hooks'
 import { SELECT_SLOT_CONTENT_INJECTION_KEY } from '@element-ai-vue/constants'
 import BaseInput from './base-input/index.vue'
 import { BaseInputEmitsType } from './base-input/props'
-import { senderProps, SenderEmitsType } from './props'
+import { senderProps, SenderEmitsType, SenderSlotsType } from './props'
 
 const ns = useNamespace('sender')
 const props = defineProps({
   ...senderProps,
 })
 
-const slots = useSlots()
+const slots = defineSlots<SenderSlotsType>()
 
 provide(SELECT_SLOT_CONTENT_INJECTION_KEY, slots['select-slot-content'])
 

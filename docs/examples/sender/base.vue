@@ -10,7 +10,8 @@
         :variant
         @focus="focusClass = true"
         @blur="focusClass = false"
-      ></ElASender>
+      >
+      </ElASender>
     </ShadowBox>
   </div>
 </template>
@@ -41,7 +42,7 @@ html.dark {
 .wapper {
   width: 600px;
   border-radius: 8px;
-  padding: 8px 7px;
+  padding: 8px;
   border: 1px solid rgba(17, 25, 37, 0.15);
 
   &.focus-class {

@@ -1,34 +1,34 @@
 <template>
   <NodeViewWrapper :class="ns.b()">
-    <div :class="ns.e('select-wap')">
-      <span style="margin-inline-end: 4px">{{ lable }}</span>
-      <span
-        class="element-ai-vue-iconfont icon-xiala1"
-        :class="ns.e('select-icon')"
-      ></span>
-    </div>
-    <component
-      :is="selectSlotContent"
-      v-if="selectSlotContent"
-      :options="options"
-    />
-    <!-- <dropdown>
-      <div class="select-wap">
+    <Popover v-model:visible="visible">
+      <div :class="ns.e('select-wap')">
         <span style="margin-inline-end: 4px">{{ lable }}</span>
-        <i class="mtdicon mtdicon-down-thick" />
+        <span
+          class="element-ai-vue-iconfont icon-xiala1"
+          :class="ns.e('select-icon')"
+        ></span>
       </div>
-      <template #dropdown>
-        <dropdown-menu>
-          <dropdown-menu-item
+      <template #content>
+        <component
+          v-if="selectSlotContent"
+          :is="selectSlotContent"
+          :options="options"
+        />
+        <div v-else :class="ns.e('options-wap')">
+          <div
             v-for="option in options"
             :key="option.value"
+            :class="[
+              ns.em('options-wap', 'option-item'),
+              ns.is('active', option.value === selectValue),
+            ]"
             @click="handleChange(option.value)"
           >
             {{ option.label }}
-          </dropdown-menu-item>
-        </dropdown-menu>
+          </div>
+        </div>
       </template>
-    </dropdown> -->
+    </Popover>
   </NodeViewWrapper>
 </template>
 
@@ -37,16 +37,24 @@ import { SELECT_SLOT_CONTENT_INJECTION_KEY } from '@element-ai-vue/constants'
 import { useNamespace } from '@element-ai-vue/hooks'
 import type { NodeViewProps } from '@tiptap/vue-3'
 import { NodeViewWrapper } from '@tiptap/vue-3'
-import { computed, inject } from 'vue'
+import { computed, inject, onBeforeUnmount, ref } from 'vue'
+import Popover from '../../popover/index.vue'
+import { SenderSelectOption } from '../props'
 
 const props = defineProps<NodeViewProps>()
+
+const visible = ref(false)
 
 // 注入透传的 slot
 const selectSlotContent = inject(SELECT_SLOT_CONTENT_INJECTION_KEY, null)
 
 const ns = useNamespace('select-slot')
-const options = computed<{ value: string; label: string }[]>(() => {
+const options = computed<SenderSelectOption[]>(() => {
   return JSON.parse(props.node.attrs.options || '[]')
+})
+
+const selectValue = computed(() => {
+  return props.node.attrs.value
 })
 
 const lable = computed(() => {
@@ -56,10 +64,10 @@ const lable = computed(() => {
     ''
   )
 })
-
-// const handleChange = (val: string) => {
-//   if (typeof val === 'string') {
-//     props.updateAttributes({ value: val })
-//   }
-// }
+const handleChange = (val: string) => {
+  visible.value = false
+  if (typeof val === 'string') {
+    props.updateAttributes({ value: val })
+  }
+}
 </script>

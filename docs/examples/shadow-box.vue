@@ -2,12 +2,20 @@
   <div ref="box"></div>
 </template>
 <script setup lang="ts">
-import { h, onMounted, render, useSlots, useTemplateRef } from 'vue'
+import {
+  h,
+  onMounted,
+  onBeforeUnmount,
+  render,
+  useSlots,
+  useTemplateRef,
+} from 'vue'
 // @ts-ignore
 import themeChalk from '@element-ai-vue/theme-chalk/src/index.scss?inline'
 
 const shadowHost = useTemplateRef('box')
 const slots = useSlots()
+let container: Element | null = null
 
 const renderDom = () => {
   if (!shadowHost.value) return
@@ -20,7 +28,7 @@ const renderDom = () => {
     shadowRoot.appendChild(style)
   }
 
-  let container = shadowRoot.querySelector('.shadow-container')
+  container = shadowRoot.querySelector('.shadow-container')
   if (!container) {
     container = document.createElement('div')
     container.className = 'shadow-container'
@@ -35,5 +43,12 @@ const renderDom = () => {
 
 onMounted(() => {
   renderDom()
+})
+
+onBeforeUnmount(() => {
+  if (container) {
+    render(null, container)
+    container = null
+  }
 })
 </script>

@@ -72,7 +72,6 @@
 
 @include b(sender) {
   width: 100%;
-  padding: 0px 5px;
   box-sizing: border-box;
   text-align: left;
   display: flex;
@@ -186,5 +185,20 @@
   }
   @include e(select-icon) {
     font-size: 8px;
+  }
+
+  @include e(options-wap) {
+    border-radius: var(--#{$namespace}-border-radius-btn);
+    max-height: 200px;
+    overflow-y: auto;
+    @include m(option-item) {
+      box-sizing: border-box;
+      padding: 4px 8px;
+      border-radius: var(--#{$namespace}-border-radius-btn);
+      cursor: pointer;
+      &:hover {
+        background-color: var(--#{$namespace}-copy-bg-color);
+      }
+    }
   }
 }

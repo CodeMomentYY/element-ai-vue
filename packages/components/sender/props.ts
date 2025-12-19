@@ -1,4 +1,4 @@
-import { ExtractPropTypes, PropType } from 'vue'
+import { ExtractPropTypes, PropType, VNode } from 'vue'
 import { baseInputProps } from './base-input/props'
 
 export interface MentionConfigItem {
@@ -19,6 +19,20 @@ export const senderProps = {
     default: 'default',
   },
 }
+
+export interface SenderSelectOption {
+  label: string
+  value: string
+}
+
+export type SenderSlotsType = {
+  prefix?: () => VNode[]
+  'input-tag-prefix'?: () => VNode[]
+  'action-list'?: () => VNode[]
+  'send-btn'?: (props: { disabled?: boolean }) => VNode[]
+  'select-slot-content'?: (props: { options: SenderSelectOption[] }) => VNode[]
+}
+
 export type SenderEmitsType = {
   (e: 'send', content: string): void
 }

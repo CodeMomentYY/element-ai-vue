@@ -5,4 +5,5 @@
 @use 'dark/css-vars.scss' as dark-css-vars;
 @use 'sender/index.scss' as sender;
 @use 'tooltip/index.scss' as tooltip;
+@use 'popover/index.scss' as popover;
 @import url('./font/iconfont.css');
