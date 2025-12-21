@@ -43,7 +43,7 @@ import { SELECT_SLOT_CONTENT_INJECTION_KEY } from '@element-ai-vue/constants'
 import { useNamespace } from '@element-ai-vue/hooks'
 import type { NodeViewProps } from '@tiptap/vue-3'
 import { NodeViewWrapper } from '@tiptap/vue-3'
-import { computed, inject, onBeforeUnmount, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import Popover from '../../popover/index.vue'
 import { SenderSelectOption } from '../props'
 

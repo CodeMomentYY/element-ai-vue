@@ -31,14 +31,6 @@ export const zhSidebar: DefaultTheme.Sidebar = [
         items: [
           { text: 'Bubble 对话气泡', link: '/zh/base/bubble' },
           { text: 'Loading 生成中', link: '/zh/base/loading' },
-          {
-            text: 'ImageGeneration 图片生成',
-            link: '/zh/base/image-generation',
-          },
-          {
-            text: 'videoGeneration 图片生成',
-            link: '/zh/base/video-generation',
-          },
           { text: 'Thinking 思考', link: '/zh/base/thinking' },
           { text: 'ThoughtChain 思维链', link: '/zh/base/thought-chain' },
         ],
@@ -93,14 +85,6 @@ export const enSidebar: DefaultTheme.Sidebar = [
         items: [
           { text: 'Bubble', link: '/en/base/bubble' },
           { text: 'Loading', link: '/en/base/loading' },
-          {
-            text: 'ImageGeneration',
-            link: '/en/base/image-generation',
-          },
-          {
-            text: 'VideoGeneration',
-            link: '/en/base/video-generation',
-          },
           { text: 'Thinking', link: '/en/base/thinking' },
           { text: 'ThoughtChain', link: '/en/base/thought-chain' },
         ],
