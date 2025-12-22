@@ -191,10 +191,7 @@ const render = async () => {
   try {
     const { svg } = await mermaid.render(`mermaid-${Date.now()}`, props.content)
     htmlContent.value = svg
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Mermaid rendering failed:', error)
-  }
+  } catch (error) {}
 }
 
 const toggleFullscreen = () => {

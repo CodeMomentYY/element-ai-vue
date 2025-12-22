@@ -13,7 +13,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ElAMarkdown, ElACodeHighlight } from '@element-ai-vue/components'
+import { ElAMarkdown, ElACodeHighlight } from 'element-ai-vue'
 import echartsTest from './echarts-test.vue'
 import { useData } from 'vitepress'
 const { isDark } = useData()

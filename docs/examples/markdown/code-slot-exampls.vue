@@ -59,7 +59,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ElAMarkdown } from '@element-ai-vue/components'
+import { ElAMarkdown } from 'element-ai-vue'
 
 import { useData } from 'vitepress'
 const { isDark } = useData()
