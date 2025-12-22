@@ -11,6 +11,7 @@ import { katexConfig } from '@element-ai-vue/constants'
 import {
   remarkAbbr,
   remarkATargetBlank,
+  remarkCodeBlockStatus,
   remarkMarkHighlight,
   remarkSubSuper,
 } from './models'
@@ -47,6 +48,10 @@ export const defaultCustomPlugins: MiddlewarePluginItem[] = [
     plugin: remarkAbbr,
   },
   {
+    key: 'remark-code-block-status',
+    plugin: remarkCodeBlockStatus,
+  },
+  {
     key: 'remark-rehype',
     plugin: remarkRehype,
     options: { allowDangerousHtml: true },
@@ -77,6 +82,7 @@ export interface MarkdownPart {
   type: 'html' | 'code'
   content: string
   language?: string
+  isClosed?: boolean
 }
 
 export type ProcessorType = ReturnType<typeof createBaseProcessor>
@@ -85,7 +91,9 @@ export const processMarkdownToParts = async (
   content: string,
   processor: ProcessorType
 ): Promise<MarkdownPart[]> => {
-  const tree = (await processor.run(processor.parse(content))) as any
+  const tree = (await processor.run(processor.parse(content), {
+    value: content,
+  } as any)) as any
   const parts: MarkdownPart[] = []
   let currentHtmlNodes: any[] = []
   const flushHtml = () => {
@@ -130,7 +138,9 @@ export const processMarkdownToParts = async (
           .map((c: any) => c.value || '')
           .join('')
 
-        parts.push({ type: 'code', content: codeContent, language })
+        const isClosed = !!codeNode.properties?.isClosed
+
+        parts.push({ type: 'code', content: codeContent, language, isClosed })
       } else {
         currentHtmlNodes.push(node)
       }
