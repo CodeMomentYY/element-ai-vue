@@ -35,9 +35,7 @@
           ]"
           @click="onSend"
         >
-          <span
-            class="element-ai-vue-iconfont icon-zhibiaoka-shangsheng"
-          ></span>
+          <span class="element-ai-vue-iconfont icon-arrow-up"></span>
         </div>
       </slot>
     </div>

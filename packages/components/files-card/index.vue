@@ -74,7 +74,7 @@
       </div>
       <span
         v-if="item.uploadingStatus !== 'progress'"
-        class="element-ai-vue-iconfont icon-icon-mianxing_fuzhi_guanbi"
+        class="element-ai-vue-iconfont icon-circle-close"
         :class="ns.e('close-icon')"
         @click="removeFile(index)"
       ></span>

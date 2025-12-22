@@ -1,8 +1,8 @@
 @font-face {
   font-family: "element-ai-vue-iconfont"; /* Project id 5088023 */
-  src: url('iconfont.woff2?t=1766392406278') format('woff2'),
-       url('iconfont.woff?t=1766392406278') format('woff'),
-       url('iconfont.ttf?t=1766392406278') format('truetype');
+  src: url('iconfont.woff2?t=1766393627565') format('woff2'),
+       url('iconfont.woff?t=1766393627565') format('woff'),
+       url('iconfont.ttf?t=1766393627565') format('truetype');
 }
 
 .element-ai-vue-iconfont {
@@ -29,59 +29,59 @@
   content: "\e69f";
 }
 
-.icon-zhongzhi:before {
+.icon-stop-chat:before {
   content: "\e60c";
 }
 
-.icon-zhibiaoka-shangsheng:before {
+.icon-arrow-up:before {
   content: "\e66b";
 }
 
-.icon-xiala1:before {
+.icon-select-down:before {
   content: "\e647";
 }
 
-.icon-duihao1:before {
+.icon-correct:before {
   content: "\e68b";
 }
 
-.icon-suoxiao:before {
+.icon-zoom-out:before {
   content: "\ec13";
 }
 
-.icon-fangda:before {
+.icon-zoom-in:before {
   content: "\ec14";
 }
 
-.icon-xiazai:before {
+.icon-download:before {
   content: "\e606";
 }
 
-.icon-quanping:before {
+.icon-full-screen:before {
   content: "\e63f";
 }
 
-.icon-yulan:before {
+.icon-preview:before {
   content: "\e649";
 }
 
-.icon-guanbi:before {
+.icon-close:before {
   content: "\e639";
 }
 
-.icon-icon-mianxing_fuzhi_guanbi:before {
+.icon-circle-close:before {
   content: "\e60a";
 }
 
-.icon-zhongxinshengcheng:before {
+.icon-regen:before {
   content: "\e615";
 }
 
-.icon-shiyingyemian:before {
+.icon-adapt-page:before {
   content: "\e64e";
 }
 
-.icon-fuzhi:before {
+.icon-copy:before {
   content: "\e8b0";
 }
 

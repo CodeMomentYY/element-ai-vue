@@ -4,7 +4,7 @@
       <div :class="ns.em('wrapper', 'content')">
         {{ value }}
         <span
-          class="element-ai-vue-iconfont icon-icon-mianxing_fuzhi_guanbi"
+          class="element-ai-vue-iconfont icon-icon-mianxing_copy_close"
           :class="ns.em('content', 'remove')"
           @click="onRemove"
         ></span>

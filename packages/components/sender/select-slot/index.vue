@@ -4,7 +4,7 @@
       <div :class="ns.e('select-wap')">
         <span style="margin-inline-end: 4px">{{ lable }}</span>
         <span
-          class="element-ai-vue-iconfont icon-xiala1"
+          class="element-ai-vue-iconfont icon-select-down"
           :class="ns.e('select-icon')"
         ></span>
       </div>
@@ -28,7 +28,7 @@
             {{ option.label }}
             <span
               v-if="option.value === selectValue"
-              class="element-ai-vue-iconfont icon-duihao1"
+              class="element-ai-vue-iconfont icon-correct"
               :class="ns.em('options-wap', 'icon')"
             ></span>
           </div>

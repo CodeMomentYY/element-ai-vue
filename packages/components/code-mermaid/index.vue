@@ -13,35 +13,35 @@
             :class="ns.em('fullscreen', 'action-download')"
             @click="downloadPng"
           >
-            <span class="element-ai-vue-iconfont icon-xiazai"></span>
+            <span class="element-ai-vue-iconfont icon-download"></span>
             下载图片
           </div>
         </div>
         <div :class="ns.em('fullscreen', 'action-other')">
           <Tooltip content="缩小">
             <span
-              class="element-ai-vue-iconfont icon-suoxiao"
+              class="element-ai-vue-iconfont icon-zoom-out"
               :class="ns.em('toolbar', 'item')"
               @click="zoomOut"
             ></span>
           </Tooltip>
           <Tooltip content="放大">
             <span
-              class="element-ai-vue-iconfont icon-fangda"
+              class="element-ai-vue-iconfont icon-zoom-in"
               :class="ns.em('toolbar', 'item')"
               @click="zoomIn"
             ></span>
           </Tooltip>
           <Tooltip content="适应页面">
             <span
-              class="element-ai-vue-iconfont icon-shiyingyemian"
+              class="element-ai-vue-iconfont icon-adapt-page"
               :class="ns.em('toolbar', 'item')"
               @click="resetZoom"
             ></span>
           </Tooltip>
           <Tooltip content="关闭">
             <span
-              class="element-ai-vue-iconfont icon-guanbi"
+              class="element-ai-vue-iconfont icon-close"
               :class="ns.em('toolbar', 'item')"
               @click="toggleFullscreen"
             ></span>
@@ -73,7 +73,7 @@
             :class="[
               'element-ai-vue-iconfont',
               ns.em('toolbar', 'item'),
-              isCopied ? 'icon-duihao1' : 'icon-fuzhi',
+              isCopied ? 'icon-correct' : 'icon-copy',
             ]"
             @click="onCopy"
           ></span>
@@ -251,27 +251,27 @@ watch([() => props.content, () => props.theme], () => {
 const toolList = [
   {
     name: '下载图片',
-    icon: 'icon-xiazai',
+    icon: 'icon-download',
     action: downloadPng,
   },
   {
     name: '缩小',
-    icon: 'icon-suoxiao',
+    icon: 'icon-zoom-out',
     action: zoomOut,
   },
   {
     name: '放大',
-    icon: 'icon-fangda',
+    icon: 'icon-zoom-in',
     action: zoomIn,
   },
   {
     name: '适应页面',
-    icon: 'icon-shiyingyemian',
+    icon: 'icon-adapt-page',
     action: resetZoom,
   },
   {
     name: '全屏查看',
-    icon: 'icon-quanping',
+    icon: 'icon-full-screen',
     action: toggleFullscreen,
   },
 ]

@@ -16,7 +16,7 @@
             <span
               :class="[
                 'element-ai-vue-iconfont',
-                isCopied ? 'icon-duihao1' : 'icon-fuzhi',
+                isCopied ? 'icon-correct' : 'icon-copy',
               ]"
             ></span>
           </div>
