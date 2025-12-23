@@ -74,8 +74,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-
 import { useData } from 'vitepress'
 const { isDark } = useData()
 
@@ -84,11 +82,6 @@ const features = [
   { icon: '🎨', text: '精美设计' },
   { icon: '🔧', text: '灵活配置' },
 ]
-
-const toggleTheme = () => {
-  isDark.value = !isDark.value
-}
-
 const getParticleStyle = (index: number) => {
   const size = Math.random() * 6 + 2
   const left = Math.random() * 100
