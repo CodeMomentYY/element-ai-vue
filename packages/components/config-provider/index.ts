@@ -1,14 +1,16 @@
 import { defineComponent, renderSlot } from 'vue'
 import { configProviderProps } from './props'
+import { provideGlobalConfig } from './provideGlobalConfig'
 
-const ConfigProvider = defineComponent({
-  name: 'ElConfigProvider',
+export const ElAConfigProvider = defineComponent({
+  name: 'ElAConfigProvider',
   props: configProviderProps,
   setup(props, { slots }) {
-    return () => renderSlot(slots, 'default', { config: props })
+    const config = provideGlobalConfig(props)
+    return () => renderSlot(slots, 'default', { config })
   },
 })
-export type ConfigProviderInstance = InstanceType<typeof ConfigProvider> &
+export type ElAConfigProviderInstance = InstanceType<typeof ElAConfigProvider> &
   unknown
 
-export default ConfigProvider
+export default ElAConfigProvider

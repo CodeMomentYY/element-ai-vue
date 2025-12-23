@@ -26,7 +26,7 @@
           v-else-if="item.uploadingStatus === 'error'"
           :class="ns.em('img-info', 'error-overlay')"
         >
-          上传失败
+          {{ t('el.filesCard.uploadError', '上传失败') }}
         </div>
       </div>
       <div v-else :class="ns.e('file-info')">
@@ -62,7 +62,7 @@
             v-else-if="item.uploadingStatus === 'error'"
             :class="ns.em('file-info', 'error-overlay')"
           >
-            上传失败
+            {{ t('el.filesCard.uploadError', '上传失败') }}
           </div>
           <div v-else :class="ns.em('file-info', 'desc')">
             <span :class="ns.em('file-info', 'ext')">{{ item.fileExt }}</span>
@@ -85,7 +85,7 @@
 <script setup lang="ts">
 import { useVModel } from '@vueuse/core'
 import { isImageFile, parseFileSize } from '@element-ai-vue/utils'
-import { useNamespace } from '@element-ai-vue/hooks'
+import { useLocale, useNamespace } from '@element-ai-vue/hooks'
 import { FilesCardEmitsType, filesCardProps } from './props'
 import { FilesUploadItem } from '../files-upload'
 import TooltipText from './tooltip-text.vue'
@@ -99,7 +99,7 @@ const props = defineProps({
   ...filesCardProps,
 })
 const emits = defineEmits<FilesCardEmitsType>()
-
+const { t } = useLocale()
 const fileList = useVModel(props, 'modelValue')
 const ns = useNamespace('files-card')
 

@@ -12,7 +12,11 @@ export type LocaleKeys =
   | (string & NonNullable<unknown>)
 
 export type TranslatorOption = Record<string, string | number>
-export type Translator = (path: LocaleKeys, option?: TranslatorOption) => string
+export type Translator = (
+  path: LocaleKeys,
+  defaultStr: string,
+  option?: TranslatorOption
+) => string
 export type LocaleContext = {
   locale: Ref<Language>
   lang: Ref<string>
@@ -21,15 +25,16 @@ export type LocaleContext = {
 
 export const buildTranslator =
   (locale: MaybeRef<Language>): Translator =>
-  (path, option) =>
-    translate(path, option, unref(locale))
+  (path, defaultStr, option) =>
+    translate(path, defaultStr, option, unref(locale))
 
 export const translate = (
   path: LocaleKeys,
+  defaultStr: string,
   option: undefined | TranslatorOption,
   locale: Language
 ): string =>
-  (get(locale, path, path) as string).replace(
+  (get(locale, path, defaultStr ?? path) as string).replace(
     /\{(\w+)\}/g,
     (_, key) => `${option?.[key] ?? `{${key}}`}`
   )

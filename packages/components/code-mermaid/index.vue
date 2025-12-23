@@ -14,32 +14,32 @@
             @click="downloadPng"
           >
             <span class="element-ai-vue-iconfont icon-download"></span>
-            下载图片
+            <span>{{ t('el.codeMermaid.download', '下载图片') }}</span>
           </div>
         </div>
         <div :class="ns.em('fullscreen', 'action-other')">
-          <Tooltip content="缩小">
+          <Tooltip :content="t('el.codeMermaid.zoomOut', '缩小')">
             <span
               class="element-ai-vue-iconfont icon-zoom-out"
               :class="ns.em('toolbar', 'item')"
               @click="zoomOut"
             ></span>
           </Tooltip>
-          <Tooltip content="放大">
+          <Tooltip :content="t('el.codeMermaid.zoomIn', '放大')">
             <span
               class="element-ai-vue-iconfont icon-zoom-in"
               :class="ns.em('toolbar', 'item')"
               @click="zoomIn"
             ></span>
           </Tooltip>
-          <Tooltip content="适应页面">
+          <Tooltip :content="t('el.codeMermaid.resetZoom', '适应页面')">
             <span
               class="element-ai-vue-iconfont icon-adapt-page"
               :class="ns.em('toolbar', 'item')"
               @click="resetZoom"
             ></span>
           </Tooltip>
-          <Tooltip content="关闭">
+          <Tooltip :content="t('el.codeMermaid.close', '关闭')">
             <span
               class="element-ai-vue-iconfont icon-close"
               :class="ns.em('toolbar', 'item')"
@@ -65,7 +65,7 @@
             ></span>
           </Tooltip>
           <div :class="ns.em('toolbar', 'item')" @click="toggleView">
-            查看代码
+            {{ t('el.codeMermaid.preview', '预览') }}
           </div>
         </template>
         <template v-else>
@@ -77,7 +77,9 @@
             ]"
             @click="onCopy"
           ></span>
-          <div :class="ns.em('toolbar', 'item')" @click="toggleView">预览</div>
+          <div :class="ns.em('toolbar', 'item')" @click="toggleView">
+            {{ t('el.codeMermaid.preview', '预览') }}
+          </div>
         </template>
       </div>
     </slot>
@@ -124,7 +126,12 @@ import {
   watch,
 } from 'vue'
 import { useFullscreen } from '@vueuse/core'
-import { useCopy, useNamespace, useWheelZoom } from '@element-ai-vue/hooks'
+import {
+  useCopy,
+  useLocale,
+  useNamespace,
+  useWheelZoom,
+} from '@element-ai-vue/hooks'
 import { downloadPngBySvgElement } from '@element-ai-vue/utils'
 import { debounce } from 'lodash-es'
 import Tooltip from '../tooltip/index.vue'
@@ -148,6 +155,7 @@ defineOptions({
 
 const tooltipRef = useTemplateRef('tooltipRef')
 const ns = useNamespace('code-mermaid')
+const { t } = useLocale()
 const previewRef = useTemplateRef<HTMLElement>('previewRef')
 const { isCopied, onCopy: copyContent } = useCopy()
 
@@ -247,27 +255,27 @@ watch([() => props.content, () => props.theme], () => {
 
 const toolList = [
   {
-    name: '下载图片',
+    name: t('el.codeMermaid.download', '下载图片'),
     icon: 'icon-download',
     action: downloadPng,
   },
   {
-    name: '缩小',
+    name: t('el.codeMermaid.zoomOut', '缩小'),
     icon: 'icon-zoom-out',
     action: zoomOut,
   },
   {
-    name: '放大',
+    name: t('el.codeMermaid.zoomIn', '放大'),
     icon: 'icon-zoom-in',
     action: zoomIn,
   },
   {
-    name: '适应页面',
+    name: t('el.codeMermaid.resetZoom', '适应页面'),
     icon: 'icon-adapt-page',
     action: resetZoom,
   },
   {
-    name: '全屏查看',
+    name: t('el.codeMermaid.fullscreen', '全屏查看'),
     icon: 'icon-full-screen',
     action: toggleFullscreen,
   },

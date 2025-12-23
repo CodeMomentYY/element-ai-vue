@@ -48,7 +48,6 @@ export const provideGlobalConfig = (
     if (!oldConfig?.value) return cfg
     return mergeConfig(oldConfig.value, cfg)
   })
-
   provide(ConfigProviderPropsKey, context)
   provideFn(
     localeContextKey,

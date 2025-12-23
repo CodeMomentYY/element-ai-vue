@@ -5,6 +5,7 @@ import {
   FilesUploadItem,
 } from '@element-ai-vue/components/files-upload/props'
 import { defaultFilesUploadProps } from '@element-ai-vue/constants'
+import { useLocale } from '../use-locale'
 
 export function getFileExtension(fileName: string) {
   return fileName.slice(fileName.lastIndexOf('.') + 1).toLowerCase()
@@ -14,6 +15,7 @@ export const useFileOperation = (
   props: Partial<FilesUploadPropsType>,
   fileList: Ref<FilesUploadItem[]>
 ) => {
+  const { t } = useLocale()
   /**
    * 校验文件格式
    * @param file 文件
@@ -45,7 +47,11 @@ export const useFileOperation = (
     if (fileList.value.length >= maxFileLength) {
       props.onErrorMessage?.({
         type: 'EXCEED_MAX_FILE_LENGTH',
-        message: `最多只能上传${props.maxFileLength}个文件`,
+        message: t(
+          'el.filesUpload.exceedMaxFileLength',
+          `最多只能上传${maxFileLength}个文件`,
+          { maxFileLength }
+        ),
       })
       return
     }
@@ -77,7 +83,13 @@ export const useFileOperation = (
       if (validateFormat(elementFile)) {
         props.onErrorMessage?.({
           type: 'INVALID_FILE_TYPE',
-          message: `格式不正确,请上传${accept.join('、')}格式`,
+          message: t(
+            'el.filesUpload.invalidFileType',
+            `格式不正确,请上传${accept.join('、')}格式`,
+            {
+              accept: accept.join(', '),
+            }
+          ),
         })
         return
       }
@@ -86,7 +98,11 @@ export const useFileOperation = (
       if (fileSize > fileSizeLimit) {
         props.onErrorMessage?.({
           type: 'EXCEED_FILE_SIZE_LIMIT',
-          message: `目前仅支持${props.fileSizeLimit}MB以内文件上传`,
+          message: t(
+            'el.filesUpload.exceedFileSizeLimit',
+            `目前仅支持${fileSizeLimit}MB以内文件上传`,
+            { fileSizeLimit }
+          ),
         })
         return
       }

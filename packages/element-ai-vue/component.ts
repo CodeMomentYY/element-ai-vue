@@ -11,6 +11,7 @@ import { ElAPpt } from '@element-ai-vue/components/ppt'
 import { ElASender } from '@element-ai-vue/components/sender'
 import { ElAThinking } from '@element-ai-vue/components/thinking'
 import { ElAThoughtChain } from '@element-ai-vue/components/thought-chain'
+import { ElAConfigProvider } from '@element-ai-vue/components/config-provider'
 
 import type { Plugin } from 'vue'
 
@@ -28,4 +29,5 @@ export default [
   ElASender,
   ElAThinking,
   ElAThoughtChain,
+  ElAConfigProvider,
 ] as Plugin[]

@@ -11,7 +11,7 @@
         <div :class="ns.e('language')">{{ language }}</div>
       </div>
       <div :class="ns.e('action')">
-        <Tooltip content="复制代码">
+        <Tooltip :content="t('el.codeHighlight.copy', '复制代码')">
           <div :class="ns.e('icon')" @click="onCopy">
             <span
               :class="[
@@ -32,12 +32,13 @@ defineOptions({
   name: 'ElACodeHighlight',
 })
 import { CodeHighlightThemeMap, commonLangs } from '@element-ai-vue/constants'
-import { useCopy, useNamespace } from '@element-ai-vue/hooks'
+import { useCopy, useLocale, useNamespace } from '@element-ai-vue/hooks'
 import { getHighlighter, HighlighterType } from '@element-ai-vue/utils'
 import { onMounted, ref, watch } from 'vue'
 import Tooltip from '../tooltip/index.vue'
 import { codeHighlightProps } from './props'
 
+const { t } = useLocale()
 const ns = useNamespace('code-highlight')
 const props = defineProps({
   content: {

@@ -6,7 +6,9 @@
     <div v-if="isOverDropZone && !props.disabled" :class="ns.e('drop-mask')">
       <slot name="mark-content">
         <div :class="ns.e('drop-mask-border')">
-          <p :class="ns.e('drop-content-first')">将文档拖拽到此区域上传</p>
+          <p :class="ns.e('drop-content-first')">
+            {{ t('el.dragUpload.text', '将文档拖拽到此区域上传') }}
+          </p>
         </div>
       </slot>
     </div>
@@ -14,7 +16,11 @@
 </template>
 
 <script setup lang="ts">
-import { useFileOperation, useNamespace } from '@element-ai-vue/hooks'
+import {
+  useFileOperation,
+  useLocale,
+  useNamespace,
+} from '@element-ai-vue/hooks'
 import { FilesUploadEmitsType, filesUploadProps } from '../files-upload'
 import { useDropZone, useVModel } from '@vueuse/core'
 import { useTemplateRef } from 'vue'
@@ -25,6 +31,7 @@ defineOptions({
 const props = defineProps({
   ...filesUploadProps,
 })
+const { t } = useLocale()
 const emits = defineEmits<FilesUploadEmitsType>()
 const fileList = useVModel(props, 'modelValue')
 const dropZoneRef = useTemplateRef('dropZoneRef')

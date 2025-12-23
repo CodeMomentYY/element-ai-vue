@@ -1,11 +1,22 @@
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
 import { useData, useRouter } from 'vitepress'
-import { onMounted, watch } from 'vue'
+import { onMounted, watch, computed } from 'vue'
+import { ElAConfigProvider } from 'element-ai-vue'
+import en from '@element-ai-vue/locale/lang/en'
+import zhCn from '@element-ai-vue/locale/lang/zh-cn'
 
 const { Layout } = DefaultTheme
-const { page } = useData()
+const { page, lang } = useData()
 const router = useRouter()
+
+const configProviderLocale = computed(() => {
+  const localeMap = {
+    'en-US': en,
+    'zh-CN': zhCn,
+  }
+  return localeMap[lang.value] || zhCn
+})
 
 onMounted(() => {
   watch(
@@ -24,7 +35,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <Layout />
+  <ElAConfigProvider :locale="localeMap">
+    <Layout />
+  </ElAConfigProvider>
 </template>
 
 <style lang="scss">

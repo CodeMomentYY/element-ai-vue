@@ -14,6 +14,7 @@ declare module 'vue' {
     ElASender: (typeof import('element-ai-vue'))['ElASender']
     ElAThinking: (typeof import('element-ai-vue'))['ElAThinking']
     ElAThoughtChain: (typeof import('element-ai-vue'))['ElAThoughtChain']
+    ElAConfigProvider: (typeof import('element-ai-vue'))['ElAConfigProvider']
   }
 }
 
