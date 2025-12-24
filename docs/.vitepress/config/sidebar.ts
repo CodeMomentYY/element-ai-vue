@@ -30,7 +30,6 @@ export const zhSidebar: DefaultTheme.Sidebar = [
         text: 'BubbleList 气泡列表',
         items: [
           { text: 'Bubble 对话气泡', link: '/zh/base/bubble' },
-          { text: 'Loading 生成中', link: '/zh/base/loading' },
           { text: 'Thinking 思考', link: '/zh/base/thinking' },
           { text: 'ThoughtChain 思维链', link: '/zh/base/thought-chain' },
         ],
@@ -84,7 +83,6 @@ export const enSidebar: DefaultTheme.Sidebar = [
         text: 'BubbleList',
         items: [
           { text: 'Bubble', link: '/en/base/bubble' },
-          { text: 'Loading', link: '/en/base/loading' },
           { text: 'Thinking', link: '/en/base/thinking' },
           { text: 'ThoughtChain', link: '/en/base/thought-chain' },
         ],

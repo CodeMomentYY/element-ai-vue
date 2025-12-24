@@ -6,7 +6,6 @@ import { ElACodeMermaid } from '@element-ai-vue/components/code-mermaid'
 import { ElADragUpload } from '@element-ai-vue/components/drag-upload'
 import { ElAFilesCard } from '@element-ai-vue/components/files-card'
 import { ElAFilesUpload } from '@element-ai-vue/components/files-upload'
-import { ElALoading } from '@element-ai-vue/components/loading'
 import { ElAPpt } from '@element-ai-vue/components/ppt'
 import { ElASender } from '@element-ai-vue/components/sender'
 import { ElAThinking } from '@element-ai-vue/components/thinking'
@@ -24,7 +23,6 @@ export default [
   ElADragUpload,
   ElAFilesCard,
   ElAFilesUpload,
-  ElALoading,
   ElAPpt,
   ElASender,
   ElAThinking,

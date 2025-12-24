@@ -9,12 +9,11 @@ declare module 'vue' {
     ElADragUpload: (typeof import('element-ai-vue'))['ElADragUpload']
     ElAFilesCard: (typeof import('element-ai-vue'))['ElAFilesCard']
     ElAFilesUpload: (typeof import('element-ai-vue'))['ElAFilesUpload']
-    ElALoading: (typeof import('element-ai-vue'))['ElALoading']
-    ElAPpt: (typeof import('element-ai-vue'))['ElAPpt']
     ElASender: (typeof import('element-ai-vue'))['ElASender']
     ElAThinking: (typeof import('element-ai-vue'))['ElAThinking']
     ElAThoughtChain: (typeof import('element-ai-vue'))['ElAThoughtChain']
     ElAConfigProvider: (typeof import('element-ai-vue'))['ElAConfigProvider']
+    ElAPpt: (typeof import('element-ai-vue'))['ElAPpt']
   }
 }
 
