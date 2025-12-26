@@ -14,31 +14,7 @@ Use the `content` property to pass in a code string, and the `language` property
 :::demo CodeHighlightBase
 
 ```vue
-<template>
-  <ElACodeHighlight language="javascript" :content="content"></ElACodeHighlight>
-</template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-import { ElACodeHighlight } from 'element-ai-vue'
-
-const content = ref(`/**
- * Generate a random integer within the range [min, max] (inclusive)
- * @param {number} min - Minimum value (integer)
- * @param {number} max - Maximum value (integer)
- * @returns {number} Random integer
- */
-function getRandomInt(min, max) {
-  // Round to avoid non-integer parameter issues
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  // Math.random() generates [0,1), resulting in [min, max]
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-// Example: Generate a random integer between 1 and 10 (inclusive)
-console.log(getRandomInt(1, 10)); // Output: Random number between 1~10`)
-</script>
+<!-- @include: ../../examples/code-highlight/base.vue -->
 ```
 
 :::
@@ -50,49 +26,7 @@ Supports slot definitions. When customizing the header, you need to handle theme
 :::demo CodeHighlightSlotExampls
 
 ```vue
-<template>
-  <ElACodeHighlight language="javascript" :content="content">
-    <template #header="{ content, language, isCopied, onCopy }">
-      <div class="header">
-        <div>{{ language }}</div>
-        <button @click="onCopy">{{ isCopied ? 'Copied' : 'Copy' }}</button>
-      </div>
-    </template>
-  </ElACodeHighlight>
-</template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-import { ElACodeHighlight } from 'element-ai-vue'
-
-const content = ref(`/**
- * Generate a random integer within the range [min, max] (inclusive)
- * @param {number} min - Minimum value (integer)
- * @param {number} max - Maximum value (integer)
- * @returns {number} Random integer
- */
-function getRandomInt(min, max) {
-  // Round to avoid non-integer parameter issues
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  // Math.random() generates [0,1), resulting in [min, max]
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-// Example: Generate a random integer between 1 and 10 (inclusive)
-console.log(getRandomInt(1, 10)); // Output: Random number between 1~10`)
-</script>
-
-<style scoped lang="scss">
-.header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background-color: #000;
-  padding: 8px;
-  color: #fff;
-}
-</style>
+<!-- @include: ../../examples/code-highlight/slot-exampls.vue -->
 ```
 
 :::

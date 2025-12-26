@@ -1,7 +1,6 @@
 <template>
   <ElAMarkdown
     :content="content"
-    :theme="isDark ? 'dark' : 'light'"
     :code-mermaid-props="{ disabledWheelZoom: true }"
   >
     <template #code-highlight-header="{ content, language, isCopied, onCopy }">
@@ -60,9 +59,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { ElAMarkdown } from 'element-ai-vue'
-
-import { useData } from 'vitepress'
-const { isDark } = useData()
 
 const content = ref(`
 # js代码块

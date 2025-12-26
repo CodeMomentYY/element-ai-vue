@@ -1,5 +1,5 @@
 <template>
-  <ElACodeMermaid :content="content" :theme="isDark ? 'dark' : 'default'">
+  <ElACodeMermaid :content="content">
     <template
       #toolbar="{
         zoomIn,
@@ -51,9 +51,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { ElACodeMermaid } from 'element-ai-vue'
-
-import { useData } from 'vitepress'
-const { isDark } = useData()
 
 const content = ref(`flowchart TD
     A[用户访问注册页面] --> B{输入注册信息}

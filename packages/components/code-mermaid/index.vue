@@ -2,7 +2,7 @@
   <div
     :class="[
       ns.b(),
-      props.theme === 'dark' ? ns.m('dark') : '',
+      theme === 'dark' ? ns.m('dark') : '',
       isFullscreen ? ns.e('fullscreen') : '',
     ]"
   >
@@ -109,11 +109,7 @@
       ></div>
     </div>
     <div v-show="isCodeView" :class="ns.e('code')">
-      <ElACodeHighlight
-        :content="content"
-        language="mermaid"
-        :theme="theme === 'dark' ? 'github-dark' : 'github-light'"
-      >
+      <ElACodeHighlight :content="content" language="mermaid" :theme>
         <template #header>
           <div></div>
         </template>
@@ -124,7 +120,7 @@
 </template>
 
 <script setup lang="ts">
-import mermaid, { MermaidConfig } from 'mermaid'
+import mermaid from 'mermaid'
 import {
   computed,
   nextTick,
@@ -141,12 +137,14 @@ import {
   useDevice,
   useLocale,
   useNamespace,
+  useTheme,
 } from '@element-ai-vue/hooks'
 import { downloadPngBySvgElement } from '@element-ai-vue/utils'
 import { debounce } from 'lodash-es'
 import Tooltip from '../tooltip/index.vue'
 import ElACodeHighlight from '../code-highlight/index.vue'
 import { codeMermaidtProps } from './props'
+import { CodeMermaidThemeMap } from '@element-ai-vue/constants'
 
 const props = defineProps({
   content: {
@@ -154,8 +152,8 @@ const props = defineProps({
     required: true,
   },
   theme: {
-    type: String as PropType<MermaidConfig['theme']>,
-    default: 'base',
+    type: String as PropType<'light' | 'dark'>,
+    default: undefined,
   },
   ...codeMermaidtProps,
 })
@@ -167,6 +165,9 @@ const tooltipRef = useTemplateRef('tooltipRef')
 const ns = useNamespace('code-mermaid')
 const { isMobileWidth } = useDevice()
 const { t } = useLocale()
+
+const themeRef = computed(() => props.theme)
+const { theme } = useTheme(themeRef)
 
 const previewRef = useTemplateRef<HTMLElement>('previewRef')
 const { isCopied, onCopy: copyContent } = useCopy()
@@ -190,7 +191,7 @@ const config = computed(() => {
   return {
     startOnLoad: false,
     ...props.mermaidConfig,
-    theme: props.theme,
+    theme: CodeMermaidThemeMap[theme.value || 'base'],
   }
 })
 

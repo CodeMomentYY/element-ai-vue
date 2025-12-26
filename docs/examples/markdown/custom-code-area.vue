@@ -1,5 +1,5 @@
 <template>
-  <ElAMarkdown :content="content" :theme="isDark ? 'dark' : 'light'">
+  <ElAMarkdown :content="content">
     <template #code="props">
       <div v-if="props.language === 'echarts'">
         <echartsTest
@@ -15,8 +15,6 @@
 import { ref } from 'vue'
 import { ElAMarkdown, ElACodeHighlight } from 'element-ai-vue'
 import echartsTest from './echarts-test.vue'
-import { useData } from 'vitepress'
-const { isDark } = useData()
 
 const content = ref(`
 # js代码块

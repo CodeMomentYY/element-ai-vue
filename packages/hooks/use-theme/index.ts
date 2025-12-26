@@ -1,12 +1,11 @@
-import { inject, InjectionKey, isRef, Ref, ref } from 'vue'
-export type ThemeType = 'light' | 'dark'
+import { ComputedRef, inject, InjectionKey, ref, Ref } from 'vue'
+export const themeContextKey: InjectionKey<
+  Ref<'light' | 'dark' | undefined> | ComputedRef<'light' | 'dark'>
+> = Symbol('themeContextKey')
 
-export const themeContextKey: InjectionKey<Ref<ThemeType | undefined>> =
-  Symbol('themeContextKey')
-
-export const useTheme = (propsTheme?: Ref<ThemeType | undefined>) => {
-  const theme = inject(themeContextKey, propsTheme)!
+export const useTheme = (propsTheme?: Ref<'light' | 'dark' | undefined>) => {
+  const theme = inject(themeContextKey, ref('light'))
   return {
-    theme: isRef(theme) ? theme : ref(theme),
+    theme: propsTheme?.value ? propsTheme : theme,
   }
 }

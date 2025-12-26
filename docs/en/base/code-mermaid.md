@@ -9,21 +9,7 @@ Use the `content` property to pass in a Mermaid syntax string.
 :::demo CodeMermaidBase
 
 ```vue
-<template>
-  <ElACodeMermaid :content="content"></ElACodeMermaid>
-</template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-import { ElACodeMermaid } from 'element-ai-vue'
-
-const content = ref(`graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-`)
-</script>
+<!-- @include: ../../examples/code-mermaid/base.vue -->
 ```
 
 :::
@@ -39,101 +25,7 @@ There are two types of toolbars:
 :::demo CodeMermaidSlotExampls
 
 ```vue
-<template>
-  <ElACodeMermaid :content="content">
-    <template
-      #toolbar="{
-        zoomIn,
-        zoomOut,
-        resetZoom,
-        toggleFullscreen,
-        downloadPng,
-        isCodeView,
-        toggleView,
-        onCopy,
-        isCopied,
-      }"
-    >
-      <div class="tool">
-        <template v-if="isCodeView">
-          <button @click="onCopy">{{ isCopied ? 'Copied' : 'Copy' }}</button>
-          <button @click="toggleView">Preview</button>
-        </template>
-        <template v-else>
-          <button @click="zoomIn">Zoom In</button>
-          <button @click="zoomOut">Zoom Out</button>
-          <button @click="resetZoom">Reset</button>
-          <button @click="downloadPng">Download PNG</button>
-          <button @click="toggleFullscreen">Toggle Fullscreen</button>
-          <button @click="toggleView">View Code</button>
-        </template>
-      </div>
-    </template>
-    <template
-      #fullscreen-toolbar="{
-        zoomIn,
-        zoomOut,
-        resetZoom,
-        toggleFullscreen,
-        downloadPng,
-      }"
-    >
-      <div class="tool-fullscreen">
-        <button @click="zoomIn">Zoom In</button>
-        <button @click="zoomOut">Zoom Out</button>
-        <button @click="resetZoom">Reset</button>
-        <button @click="downloadPng">Download PNG</button>
-        <button @click="toggleFullscreen">Exit Fullscreen</button>
-      </div>
-    </template>
-  </ElACodeMermaid>
-</template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-import { ElACodeMermaid } from 'element-ai-vue'
-
-const content = ref(`flowchart TD
-    A[User visits registration page] --> B{Enter registration info}
-    B -->|Info complete| C[Backend validates info]
-    B -->|Info missing| D[Prompt user to fill required fields]
-    D --> B
-    C -->|Validation passed| E[Send verification email/SMS]
-    C -->|Validation failed| F[Show error message (e.g., phone already registered)]
-    F --> B
-    E --> G{User completes verification}
-    G -->|Verified within 24h| H[Create user account, registration successful]
-    G -->|Timeout| I[Verification link expired, resend]
-    I --> E
-    E --> G{User completes verification}
-    G -->|Verified within 24h| H[Create user account, registration successful]
-    G -->|Timeout| I[Verification link expired, resend]
-    I --> E
-    E --> G{User completes verification}
-    G -->|Verified within 24h| H[Create user account, registration successful]
-    G -->|Timeout| I[Verification link expired, resend]
-    I --> E
-    E --> G{User completes verification}
-    G -->|Verified within 24h| H[Create user account, registration successful]
-    G -->|Timeout| I[Verification link expired, resend]
-    I --> E
-`)
-</script>
-
-<style scoped lang="scss">
-.tool {
-  background-color: #000;
-  display: flex;
-  gap: 8px;
-  color: #fff;
-}
-.tool-fullscreen {
-  background-color: #000;
-  display: flex;
-  gap: 8px;
-  color: #fff;
-}
-</style>
+<!-- @include: ../../examples/code-mermaid/slot-exampls.vue -->
 ```
 
 :::

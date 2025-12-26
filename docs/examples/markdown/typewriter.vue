@@ -5,17 +5,13 @@
     <button class="switch-btn" @click="stop">停止</button>
   </div>
   <ShadowBox>
-    <ElAMarkdown
-      :content="content"
-      :theme="isDark ? 'dark' : 'light'"
-    ></ElAMarkdown>
+    <ElAMarkdown :content="content"></ElAMarkdown>
   </ShadowBox>
 </template>
 <script setup lang="ts">
 import ShadowBox from '../shadow-box.vue'
-import { useData } from 'vitepress'
 import { useTyperwriter, ElAMarkdown } from 'element-ai-vue'
-const { isDark } = useData()
+
 const { start, paused, stop, setText, content } = useTyperwriter({
   interval: 50,
 })

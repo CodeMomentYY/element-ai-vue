@@ -1,19 +1,15 @@
 <template>
-  <div :class="[ns.b(), props.theme === 'dark' ? ns.m('dark') : '']">
+  <div :class="[ns.b(), theme === 'dark' ? ns.m('dark') : '']">
     <template v-for="(part, index) in parts" :key="index">
       <slot
         v-if="part.type === 'code' && part.language === 'mermaid'"
         name="mermaid"
         :content="part.content"
         :language="part.language"
-        :theme="CodeMermaidThemeMap[theme] || 'default'"
+        :theme="CodeMermaidThemeMap[theme || 'light']"
         v-bind="codeMermaidProps"
       >
-        <CodeMermaid
-          :content="part.content"
-          :theme="CodeMermaidThemeMap[theme] || 'default'"
-          v-bind="codeMermaidProps"
-        >
+        <CodeMermaid :content="part.content" :theme v-bind="codeMermaidProps">
           <template #toolbar="props">
             <slot name="code-mermaid-toolbar" v-bind="props"></slot>
           </template>
@@ -67,14 +63,15 @@ import { watch, ref, computed } from 'vue'
 import CodeHighlight from '../code-highlight/index.vue'
 import CodeMermaid from '../code-mermaid/index.vue'
 import { markdownProps } from './props'
-import { useNamespace } from '@element-ai-vue/hooks'
+import { useNamespace, useTheme } from '@element-ai-vue/hooks'
 
 const ns = useNamespace('markdown')
 const props = defineProps({
   ...markdownProps,
 })
 const parts = ref<MarkdownPart[]>([])
-
+const themeRef = computed(() => props.theme)
+const { theme } = useTheme(themeRef)
 const processor = computed(() => {
   const plugins = mergeWith([], defaultCustomPlugins, props.remarkPlugins)
   return createBaseProcessor(plugins)

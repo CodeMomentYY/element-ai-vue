@@ -7,7 +7,7 @@ import en from '@element-ai-vue/locale/lang/en'
 import zhCn from '@element-ai-vue/locale/lang/zh-cn'
 
 const { Layout } = DefaultTheme
-const { page, lang } = useData()
+const { page, lang, isDark } = useData()
 const router = useRouter()
 
 const configProviderLocale = computed(() => {
@@ -35,7 +35,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <ElAConfigProvider :locale="configProviderLocale">
+  <ElAConfigProvider
+    :locale="configProviderLocale"
+    :theme="isDark ? 'dark' : 'light'"
+  >
     <Layout />
   </ElAConfigProvider>
 </template>

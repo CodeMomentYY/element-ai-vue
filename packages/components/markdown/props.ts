@@ -6,7 +6,7 @@ import { CodeMermaidPropsType } from '../code-mermaid/props'
 export const markdownProps = {
   theme: {
     type: String as PropType<'dark' | 'light'>,
-    default: 'light',
+    default: undefined,
   },
   content: {
     type: String,

@@ -1,5 +1,5 @@
 <template>
-  <div :class="[ns.b(), props.theme === 'dark' ? ns.m('dark') : '']">
+  <div :class="[ns.b(), theme === 'dark' ? ns.m('dark') : '']">
     <slot
       name="header"
       :content="content"
@@ -32,9 +32,14 @@ defineOptions({
   name: 'ElACodeHighlight',
 })
 import { CodeHighlightThemeMap, commonLangs } from '@element-ai-vue/constants'
-import { useCopy, useLocale, useNamespace } from '@element-ai-vue/hooks'
+import {
+  useCopy,
+  useLocale,
+  useNamespace,
+  useTheme,
+} from '@element-ai-vue/hooks'
 import { getHighlighter, HighlighterType } from '@element-ai-vue/utils'
-import { onMounted, ref, watch } from 'vue'
+import { computed, onMounted, PropType, ref, watch } from 'vue'
 import Tooltip from '../tooltip/index.vue'
 import { codeHighlightProps } from './props'
 
@@ -50,11 +55,14 @@ const props = defineProps({
     default: '',
   },
   theme: {
-    type: String,
-    default: 'light',
+    type: String as PropType<'light' | 'dark'>,
+    default: undefined,
   },
   ...codeHighlightProps,
 })
+const themeRef = computed(() => props.theme)
+const { theme } = useTheme(themeRef)
+
 const htmlContent = ref('')
 const highlighter = ref<HighlighterType | null>(null)
 const { isCopied, onCopy: copyContent } = useCopy()
@@ -75,14 +83,16 @@ defineExpose({
 })
 
 watch(
-  [() => props.content, () => highlighter.value, () => props.theme],
+  [() => props.content, () => highlighter.value, () => theme.value],
   async () => {
-    if (!highlighter.value) return
+    if (!highlighter.value || !theme.value) return
     const hasLang = commonLangs.includes(props.language || '')
     const html = await highlighter.value.codeToHtml(props.content, {
       lang: hasLang ? props.language : 'plaintext',
       theme:
-        CodeHighlightThemeMap[props.theme] || props.theme || 'github-light',
+        CodeHighlightThemeMap[theme.value || 'light'] ||
+        theme.value ||
+        'github-light',
     })
     htmlContent.value = html
   },

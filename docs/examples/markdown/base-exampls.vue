@@ -1,18 +1,12 @@
 <template>
   <ShadowBox>
-    <ElAMarkdown
-      :content="content"
-      :theme="isDark ? 'dark' : 'light'"
-    ></ElAMarkdown>
+    <ElAMarkdown :content="content"></ElAMarkdown>
   </ShadowBox>
 </template>
 <script setup lang="ts">
 import ShadowBox from '../shadow-box.vue'
 import { ref } from 'vue'
 import { ElAMarkdown } from 'element-ai-vue'
-
-import { useData } from 'vitepress'
-const { isDark } = useData()
 
 const content = ref(`
 # 一级标题
