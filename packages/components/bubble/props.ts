@@ -1,4 +1,5 @@
 import { ExtractPropTypes, PropType } from 'vue'
+import { MarkdownPropsType } from '../markdown/props'
 
 export const bubbleProps = {
   theme: {
@@ -30,7 +31,6 @@ export const bubbleProps = {
     type: Boolean,
     default: false,
   },
-
   variant: {
     type: String as PropType<'filled' | 'outlined' | 'shadow' | 'borderless'>,
     default: 'filled',
@@ -38,6 +38,14 @@ export const bubbleProps = {
   shape: {
     type: String as PropType<'default' | 'round' | 'corner'>,
     default: 'default',
+  },
+  footerTrigger: {
+    type: String as PropType<'none' | 'hover'>,
+    default: 'none',
+  },
+  markdownProps: {
+    type: Object as PropType<MarkdownPropsType>,
+    default: () => ({}),
   },
 }
 

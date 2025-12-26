@@ -183,7 +183,6 @@ const isFullscreen = computed(() => {
     return pageIsFullscreen.value
   }
 })
-
 const { scale, translateX, translateY, initZoom, zoomIn, zoomOut, resetZoom } =
   useD3Zoom(previewRef, props, isFullscreen)
 

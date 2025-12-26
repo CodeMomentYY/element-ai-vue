@@ -1,5 +1,5 @@
 <template>
-  <div :class="[ns.b(), ns.b(placement)]">
+  <div :class="[ns.b(), ns.b(placement), ns.b(footerTrigger + '-footer')]">
     <div v-if="hasAvatar" :class="ns.e('avatar')">
       <slot name="avatar"></slot>
     </div>
@@ -21,8 +21,13 @@
               ns.em('content', shape),
             ]"
           >
-            <slot>
-              <ElAMarkdown v-if="isMarkdown" :content="contentData" :theme />
+            <slot :content="contentData">
+              <ElAMarkdown
+                v-if="isMarkdown"
+                :content="contentData"
+                :theme
+                v-bind="markdownProps"
+              />
               <template v-else> {{ contentData }}</template>
             </slot>
           </div>

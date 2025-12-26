@@ -1,20 +1,16 @@
 import { ExtractPropTypes, PropType } from 'vue'
 
-export const thinkingProps = {
-  modelValue: {
-    type: Boolean,
-    default: false,
+export const bubbleListProps = {
+  backButtonThreshold: {
+    type: Number,
+    default: 80,
   },
-  title: {
-    type: String,
-    default: '',
+  bottomThreshold: {
+    type: Number,
+    default: 20,
   },
 }
 
-export type ThinkingEmitsType = {
-  (e: 'update:modelValue', value: boolean): void
-}
-
-export type ThinkingPropsType = PropType<
-  Partial<ExtractPropTypes<typeof thinkingProps>>
+export type BubbleListPropsType = PropType<
+  Partial<ExtractPropTypes<typeof bubbleListProps>>
 >

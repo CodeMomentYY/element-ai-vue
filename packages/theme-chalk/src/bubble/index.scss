@@ -5,6 +5,8 @@
 @include b(bubble) {
   display: flex;
   gap: 12px;
+  width: 100%;
+
   @include e(header) {
     padding-bottom: 12px;
   }
@@ -87,6 +89,30 @@
     }
     .#{$namespace}-bubble__content--corner {
       border-top-right-radius: 0;
+    }
+  }
+  &.#{$namespace}-bubble-hover-footer {
+    @media (hover: hover) {
+      .#{$namespace}-bubble__footer {
+        opacity: 0;
+        pointer-events: none;
+      }
+      &:hover {
+        .#{$namespace}-bubble__footer {
+          opacity: 1;
+          pointer-events: unset;
+        }
+      }
+    }
+  }
+  &:last-child {
+    &.#{$namespace}-bubble-start {
+      &.#{$namespace}-bubble-hover-footer {
+        .#{$namespace}-bubble__footer {
+          opacity: 1;
+          pointer-events: unset;
+        }
+      }
     }
   }
 }
