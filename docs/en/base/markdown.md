@@ -20,7 +20,7 @@ The Markdown component's core is built on the `unified` and `remark` ecosystem. 
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ElAMarkdown } from '@element-ai-vue/components'
+import { ElAMarkdown } from 'element-ai-vue'
 const content = ref(`
 # Heading 1
 ## Heading 2

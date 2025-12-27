@@ -20,7 +20,7 @@ Markdown 组件的核心基于 `unified` 和 `remark` 生态构建。它通过�
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ElAMarkdown } from '@element-ai-vue/components'
+import { ElAMarkdown } from 'element-ai-vue'
 const content = ref(`
 # 一级标题
 ## 二级标题
