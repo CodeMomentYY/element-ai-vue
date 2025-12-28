@@ -93,9 +93,13 @@ export function handleZeroWidthCharLogic(newState: EditorState) {
   return null
 }
 
+let keyDownPlugin: Plugin | null = null
+const keyDownKey = new PluginKey('prevent-empty-inline-node')
+
 export function keyDownHandlePlugin() {
-  return new Plugin({
-    key: new PluginKey('prevent-empty-inline-node'),
+  if (keyDownPlugin) return keyDownPlugin
+  keyDownPlugin = new Plugin({
+    key: keyDownKey,
     props: {
       handleKeyDown(view, event) {
         // console.log('handle key down plugin');
@@ -477,10 +481,16 @@ export function keyDownHandlePlugin() {
       },
     },
   })
+  return keyDownPlugin
 }
 
+let ensureTrailingTextPlugin: Plugin | null = null
+const ensureTrailingTextKey = new PluginKey('ensure-trailing-text')
+
 export function ensureTrailingText() {
-  return new Plugin({
+  if (ensureTrailingTextPlugin) return ensureTrailingTextPlugin
+  ensureTrailingTextPlugin = new Plugin({
+    key: ensureTrailingTextKey,
     appendTransaction(transactions, oldState, newState) {
       // 只在内容发生变化时修正，防止选区丢失
       // Only correct when content changes to prevent loss of selections
@@ -494,4 +504,5 @@ export function ensureTrailingText() {
       return handleZeroWidthCharLogic(newState)
     },
   })
+  return ensureTrailingTextPlugin
 }
