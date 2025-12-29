@@ -5,14 +5,20 @@ import {
   groupIconVitePlugin,
 } from 'vitepress-plugin-group-icons'
 import { demoblockPlugin, demoblockVitePlugin } from 'vitepress-theme-demoblock'
-import { enNav, zhNav } from './nav'
 import path from 'path'
+import { enNav, zhNav } from './nav'
+import { enSearch, zhSearch } from './search'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'element-ai-vue',
 
   description: '企业级 AI 交互组件库',
+  lastUpdated: true,
+  cleanUrls: true,
+  sitemap: {
+    hostname: 'https://element-ai-vue.com',
+  },
   markdown: {
     config(md) {
       md.use(demoblockPlugin)
@@ -63,6 +69,15 @@ export default defineConfig({
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    search: {
+      provider: 'local',
+      options: {
+        locales: {
+          root: zhSearch,
+          en: enSearch,
+        },
+      },
+    },
     logo: { src: '/logo.svg', width: 30, height: 30 },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/1365436742/element-ai-vue' },
@@ -74,6 +89,18 @@ export default defineConfig({
   },
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo-black.svg' }],
+    ['meta', { name: 'author', content: 'Element Ai Vue Team' }],
+    [
+      'meta',
+      {
+        name: 'keywords',
+        content:
+          'element-ai-vue, vue3, ai components, ui library, element-plus, chat ui',
+      },
+    ],
+    ['meta', { property: 'og:title', content: 'Element Ai Vue' }],
+    ['meta', { property: 'og:description', content: '企业级 AI 交互组件库' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
   ],
   locales: {
     root: {
