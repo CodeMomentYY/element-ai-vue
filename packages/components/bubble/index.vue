@@ -89,10 +89,13 @@ watch(
 
 watch(
   () => props.typingOver,
-  (newVal) => {
+  (newVal, oldVal) => {
     setConfig({
       staticText: newVal,
     })
+    if (oldVal === false && newVal === true) {
+      overTyperwriter()
+    }
   },
   {
     immediate: true,

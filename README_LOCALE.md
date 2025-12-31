@@ -5,5 +5,5 @@ Oxc、Prettier - Code formatter
 # TODO
 
 2. 编写demo
-3. 提供 PR 入口和方式
-4. 提供issues入口
+3. demo 看一下图标不能点击放大的原因
+
