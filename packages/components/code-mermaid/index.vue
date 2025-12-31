@@ -199,20 +199,19 @@ onMounted(() => {
   initZoom()
   render()
 })
+
 const render = async () => {
   if (!props.content) return
   mermaid.initialize({
     ...config.value,
     suppressErrorRendering: true,
   })
-  try {
-    const { svg } = await mermaid.render(`mermaid-${Date.now()}`, props.content)
-    htmlContent.value = svg
-  } catch (error) {
-    // 清理 mermaid 渲染失败时创建的错误元素
-    const errorElements = document.querySelectorAll('[id^="dmermaid-"]')
-    errorElements.forEach((el) => el.remove())
+  const isValid = await mermaid.parse(props.content)
+  if (!isValid) {
+    return
   }
+  const { svg } = await mermaid.render(`mermaid-${Date.now()}`, props.content)
+  htmlContent.value = svg
 }
 
 const toggleFullscreen = () => {

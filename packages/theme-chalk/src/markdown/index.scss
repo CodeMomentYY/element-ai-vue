@@ -10,6 +10,31 @@
   .#{$namespace}-code-mermaid {
     margin: 16px 0;
   }
+  
+  .katex {
+    .katex-html {
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      &::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        border: 0px;
+        border-color: transparent;
+        background: var(--#{$namespace}-scrollbar-thumb-bg-color);
+      }
+    }
+  }
 
   @include e(markdown-body) {
     -ms-text-size-adjust: 100%;
