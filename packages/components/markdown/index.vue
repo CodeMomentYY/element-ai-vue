@@ -56,6 +56,7 @@ import {
   MarkdownPart,
   defaultCustomPlugins,
   createBaseProcessor,
+  katexProcess,
 } from '@element-ai-vue/utils'
 import { CodeMermaidThemeMap } from '@element-ai-vue/constants'
 import { mergeWith } from 'lodash-es'
@@ -84,7 +85,11 @@ watch(
       parts.value = []
       return
     }
-    parts.value = await processMarkdownToParts(props.content, processor.value)
+
+    parts.value = await processMarkdownToParts(
+      katexProcess(props.content),
+      processor.value
+    )
   },
   { immediate: true }
 )

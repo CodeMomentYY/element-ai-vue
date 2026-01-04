@@ -149,3 +149,22 @@ export const processMarkdownToParts = async (
   flushHtml()
   return parts
 }
+
+export const katexProcess = (content: string): string => {
+  let resultContent = content
+  // 将 \[...\] 转换为 $$...$$
+  resultContent = resultContent.replace(
+    /\\\[([\s\S]*?)\\\]/g,
+    (match, formula) => {
+      return `$$${formula}$$`
+    }
+  )
+  // 将 \(...\) 转换为 $...$
+  resultContent = resultContent.replace(
+    /\\\(([\s\S]*?)\\\)/g,
+    (match, formula) => {
+      return `$${formula}$`
+    }
+  )
+  return resultContent
+}
