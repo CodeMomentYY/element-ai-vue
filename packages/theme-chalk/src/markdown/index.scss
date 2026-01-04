@@ -1,6 +1,7 @@
 @use '../mixins/mixins' as *;
 @use '../mixins/config' as *;
 @use '../common/var' as *;
+@import 'katex/dist/katex.min.css';
 
 @include b(markdown) {
   padding: 5px 10px;

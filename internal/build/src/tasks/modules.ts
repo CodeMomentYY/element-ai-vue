@@ -59,7 +59,7 @@ async function buildModulesComponents() {
     input,
     plugins,
     external: await generateExternal({ full: false }),
-    treeshake: { moduleSideEffects: false },
+    treeshake: false,
     onwarn(warning, warn) {
       if (warning.code === 'CIRCULAR_DEPENDENCY') {
         if (warning.message.includes('node_modules')) {

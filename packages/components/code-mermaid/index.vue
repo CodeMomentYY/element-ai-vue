@@ -190,8 +190,10 @@ const { scale, translateX, translateY, initZoom, zoomIn, zoomOut, resetZoom } =
 const config = computed(() => {
   return {
     startOnLoad: false,
-    ...props.mermaidConfig,
+    securityLevel: 'loose' as 'loose' | 'strict' | 'antiscript' | 'sandbox',
+    suppressErrorRendering: true,
     theme: CodeMermaidThemeMap[theme.value || 'base'],
+    ...props.mermaidConfig,
   }
 })
 
@@ -204,14 +206,15 @@ const render = async () => {
   if (!props.content) return
   mermaid.initialize({
     ...config.value,
-    suppressErrorRendering: true,
   })
-  const isValid = await mermaid.parse(props.content)
-  if (!isValid) {
-    return
-  }
-  const { svg } = await mermaid.render(`mermaid-${Date.now()}`, props.content)
-  htmlContent.value = svg
+  try {
+    const isValid = await mermaid.parse(props.content)
+    if (!isValid) {
+      return
+    }
+    const { svg } = await mermaid.render(`mermaid-${Date.now()}`, props.content)
+    htmlContent.value = svg
+  } catch (error) {}
 }
 
 const toggleFullscreen = () => {
