@@ -166,5 +166,28 @@ export const katexProcess = (content: string): string => {
       return `$${formula}$`
     }
   )
+  // 识别 $...$ 中包含换行的公式，将其转换为 $$...$$
+  resultContent = resultContent.replace(
+    /(\$\$[\s\S]*?\$\$)|(\$([\s\S]*?)\$)/g,
+    (match, doubleDollar, singleDollar, singleContent) => {
+      if (doubleDollar) {
+        return match
+      }
+      if (singleContent && singleContent.includes('\n')) {
+        return `$$${singleContent}$$`
+      }
+      return match
+    }
+  )
+  // 确保块级公式 $$...$$ 前后有换行，以便正确解析
+  resultContent = resultContent.replace(
+    /\$\$([\s\S]*?)\$\$/g,
+    (match, formula) => {
+      if (formula.includes('\n')) {
+        return `\n$$${formula}$$\n`
+      }
+      return match
+    }
+  )
   return resultContent
 }
