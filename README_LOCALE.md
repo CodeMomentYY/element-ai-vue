@@ -4,5 +4,5 @@ Oxc、Prettier - Code formatter
 
 # TODO
 
-2. 编写demo
-3. demo 看一下图标不能点击放大的原因
+3. demo 数学公式英文版尝试一下
+4. 发布一个新版本
