@@ -8,6 +8,7 @@
       :onCopy="onCopy"
     >
       <div :class="ns.e('header')">
+        <div @click="toggleExpanded">sss</div>
         <div :class="ns.e('language')">{{ language }}</div>
       </div>
       <div :class="ns.e('action')">
@@ -23,7 +24,9 @@
         </Tooltip>
       </div>
     </slot>
-    <div :class="ns.e('content')" v-html="htmlContent"></div>
+    <TransitionHeight :show="expanded ?? curExpanded">
+      <div :class="ns.e('content')" v-html="htmlContent"></div>
+    </TransitionHeight>
   </div>
 </template>
 
@@ -41,10 +44,13 @@ import {
 import { getHighlighter, HighlighterType } from '@element-ai-vue/utils'
 import { computed, onMounted, PropType, ref, watch } from 'vue'
 import Tooltip from '../tooltip/index.vue'
-import { codeHighlightProps } from './props'
+import { CodeHighlightEmitsType, codeHighlightProps } from './props'
+import TransitionHeight from '../transition-height/index.vue'
 
 const { t } = useLocale()
 const ns = useNamespace('code-highlight')
+const curExpanded = ref(true)
+const emits = defineEmits<CodeHighlightEmitsType>()
 const props = defineProps({
   content: {
     type: String,
@@ -69,6 +75,11 @@ const { isCopied, onCopy: copyContent } = useCopy()
 
 const onCopy = () => {
   copyContent(props.content)
+}
+
+const toggleExpanded = () => {
+  curExpanded.value = !curExpanded.value
+  emits('update:expanded', curExpanded.value)
 }
 
 onMounted(async () => {

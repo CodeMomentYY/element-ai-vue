@@ -10,6 +10,14 @@ export const codeHighlightProps = {
     type: Array as PropType<BundledTheme[]>,
     default: () => [],
   },
+  expanded: {
+    type: Boolean,
+    default: undefined,
+  },
+}
+
+export type CodeHighlightEmitsType = {
+  (e: 'update:expanded', value: boolean): void
 }
 
 export type CodeHighlightPropsType = PropType<

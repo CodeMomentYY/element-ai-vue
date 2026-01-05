@@ -33,7 +33,7 @@ import { useNamespace } from '@element-ai-vue/hooks'
 import { useElementSize, useMutationObserver } from '@vueuse/core'
 import { computed, onMounted, ref, useTemplateRef, watch } from 'vue'
 import { ThinkingEmitsType, thinkingProps } from './props'
-import TransitionHeight from './transition-height.vue'
+import TransitionHeight from '../transition-height/index.vue'
 
 defineOptions({
   name: 'ElAThinking',

@@ -14,6 +14,9 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  name: 'ElATransitionHeight',
+})
 defineProps({
   show: {
     type: Boolean,
