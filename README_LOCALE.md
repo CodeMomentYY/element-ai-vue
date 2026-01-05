@@ -4,4 +4,4 @@ Oxc、Prettier - Code formatter
 
 # TODO
 
-5. 发布一个新版本
+5. 文档标注一下，theme主题切换
