@@ -4,4 +4,4 @@ Oxc、Prettier - Code formatter
 
 # TODO
 
-5. 文档标注一下，theme主题切换
+1. 文档根目录访问的内容显示换一下

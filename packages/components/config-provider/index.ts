@@ -1,4 +1,4 @@
-import { defineComponent, renderSlot } from 'vue'
+import { defineComponent, renderSlot, watch } from 'vue'
 import { configProviderProps } from './props'
 import { provideGlobalConfig } from './provideGlobalConfig'
 
@@ -7,6 +7,16 @@ export const ElAConfigProvider = defineComponent({
   props: configProviderProps,
   setup(props, { slots }) {
     const config = provideGlobalConfig(props)
+    watch(
+      () => config?.value.theme,
+      (val) => {
+        if (val === 'dark') {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+      }
+    )
     return () => renderSlot(slots, 'default', { config })
   },
 })
