@@ -50,7 +50,7 @@ yarn install element-ai-vue
 欢迎添加作者微信，加入技术交流群，一起讨论与共建（请备注：element-ai-vue）：
 
 <div align="center">
-  <img src="https://github.com/1365436742/element-ai-vue/blob/main/md-resource/wx.png?raw=true" width="200" alt="WeChat" />
+  <img src="https://github.com/1365436742/element-ai-vue/blob/main/md-resource/wx.png?raw=true" width="200" alt="WeChat" style="pointer-events: none" />
 </div>
 
 ## ❤️ 赞赏支持
