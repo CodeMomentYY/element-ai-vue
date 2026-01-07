@@ -47,6 +47,12 @@ yarn install element-ai-vue
 无论是报告 Bug、修复代码、完善文档，还是提出富有建设性的建议，您的每一份贡献都对我们至关重要。
 让我们携手并进，共同打造更优质的 AI 组件库生态。
 
+欢迎添加作者微信，加入技术交流群，一起讨论与共建（请备注：element-ai-vue）：
+
+<div align="center">
+  <img src="https://github.com/1365436742/element-ai-vue/blob/main/md-resource/wx.png?raw=true" width="200" alt="WeChat" />
+</div>
+
 ## ❤️ 赞赏支持
 
 维护开源项目需要持续的精力投入。
