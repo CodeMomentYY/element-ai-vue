@@ -52,14 +52,3 @@ yarn install element-ai-vue
 <div align="center">
   <img src="https://element-ai-vue.com/cdn/public/wx.png" width="300" alt="WeChat"  />
 </div>
-
-## ❤️ 赞赏支持
-
-维护开源项目需要持续的精力投入。
-如果您觉得本项目对您的工作有所帮助，或者希望支持项目的长远发展，欢迎给作者打赏一杯咖啡 ☕️。
-感兴趣的朋友可以给予支持，您的鼓励是我们不断前行的最大动力！
-
-<div align="center">
-  <img src="https://element-ai-vue.com/cdn/public/wx-pay.png" width="300" alt="WeChat"  />
-  <img src="https://element-ai-vue.com/cdn/public/zfb-pay.jpg" width="300" alt="WeChat"  />
-</div>

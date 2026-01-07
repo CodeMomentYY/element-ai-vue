@@ -52,14 +52,3 @@ Welcome to add the author's WeChat to join the technical exchange group for disc
 <div align="center">
   <img src="https://element-ai-vue.com/cdn/public/wx.png" width="300" alt="WeChat"  />
 </div>
-
-## ❤️ Sponsorship
-
-Maintaining an open-source project requires continuous effort.
-If you find this project helpful for your work, or wish to support the long-term development of the project, you are welcome to buy the author a coffee ☕️.
-Friends who are interested can give support, your encouragement is our biggest motivation to keep moving forward!
-
-<div align="center">
-  <img src="https://element-ai-vue.com/cdn/public/wx-pay.png" width="300" alt="WeChat"  />
-  <img src="https://element-ai-vue.com/cdn/public/zfb-pay.jpg" width="300" alt="WeChat"  />
-</div>
