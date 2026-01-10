@@ -80,6 +80,9 @@ importers:
       dompurify:
         specifier: ^3.3.0
         version: 3.3.0
+      hast-util-to-html:
+        specifier: ^9.0.5
+        version: 9.0.5
       json5:
         specifier: ^2.2.3
         version: 2.2.3
@@ -101,9 +104,6 @@ importers:
       rehype-katex:
         specifier: ^7.0.1
         version: 7.0.1
-      rehype-stringify:
-        specifier: ^10.0.1
-        version: 10.0.1
       remark-breaks:
         specifier: ^4.0.0
         version: 4.0.0
@@ -198,6 +198,9 @@ importers:
       '@types/gulp-sass':
         specifier: ^6.0.0
         version: 6.0.0
+      '@types/hast':
+        specifier: ^3.0.4
+        version: 3.0.4
       '@types/jsdom':
         specifier: ^27.0.0
         version: 27.0.0
@@ -215,7 +218,7 @@ importers:
         version: 2.0.12
       '@vitejs/plugin-vue':
         specifier: ^2.3.4
-        version: 2.3.4(vite@7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3))
+        version: 2.3.4(vite@5.4.21(@types/node@24.10.1)(sass@1.95.0))(vue@3.5.25(typescript@5.9.3))
       '@vue/test-utils':
         specifier: 'catalog:'
         version: 2.4.6
@@ -252,6 +255,9 @@ importers:
       gulp-sass:
         specifier: ^6.0.1
         version: 6.0.1
+      hast:
+        specifier: ^1.0.0
+        version: 1.0.0
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -290,7 +296,7 @@ importers:
         version: 4.21.0
       unplugin-vue-macros:
         specifier: ^2.14.5
-        version: 2.14.5(@vueuse/core@10.11.1(vue@3.5.25(typescript@5.9.3)))(esbuild@0.27.1)(rollup@4.53.3)(typescript@5.9.3)(vite@7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3))
+        version: 2.14.5(@vueuse/core@10.11.1(vue@3.5.25(typescript@5.9.3)))(esbuild@0.27.1)(rollup@4.53.3)(typescript@5.9.3)(vite@5.4.21(@types/node@24.10.1)(sass@1.95.0))(vue@3.5.25(typescript@5.9.3))
       vinyl:
         specifier: ^3.0.1
         version: 3.0.1
@@ -299,7 +305,7 @@ importers:
         version: 2.0.0-alpha.15(@types/node@24.10.1)(async-validator@4.2.5)(change-case@5.4.4)(jiti@2.6.1)(postcss@8.5.6)(sass@1.95.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
       vitepress-plugin-group-icons:
         specifier: ^1.6.5
-        version: 1.6.5(vite@7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2))
+        version: 1.6.5(vite@5.4.21(@types/node@24.10.1)(sass@1.95.0))
       vitepress-theme-demoblock:
         specifier: ^3.1.3
         version: 3.1.3(@algolia/client-search@5.46.0)(@types/node@24.10.1)(async-validator@4.2.5)(change-case@5.4.4)(postcss@8.5.6)(sass@1.95.0)(search-insights@2.17.3)(typescript@5.9.3)
@@ -528,6 +534,9 @@ importers:
       dompurify:
         specifier: ^3.3.0
         version: 3.3.0
+      hast-util-to-html:
+        specifier: ^9.0.5
+        version: 9.0.5
       json5:
         specifier: ^2.2.3
         version: 2.2.3
@@ -543,9 +552,6 @@ importers:
       rehype-katex:
         specifier: ^7.0.1
         version: 7.0.1
-      rehype-stringify:
-        specifier: ^10.0.1
-        version: 10.0.1
       remark-breaks:
         specifier: ^4.0.0
         version: 4.0.0
@@ -5681,6 +5687,10 @@ packages:
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
 
+  hast@1.0.0:
+    resolution: {integrity: sha512-vFUqlRV5C+xqP76Wwq2SrM0kipnmpxJm7OfvVXpB35Fp+Fn4MV+ozr+JZr5qFvyR1q/U+Foim2x+3P+x9S1PLA==}
+    deprecated: Renamed to rehype
+
   hastscript@9.0.1:
     resolution: {integrity: sha512-g7df9rMFX/SPi34tyGCyUBREQoKkapwdY/T04Qn9TDWfHhAYt4/I0gMVirzK5wEzeUqIjEB+LXC/ypb7Aqno5w==}
 
@@ -7714,9 +7724,6 @@ packages:
 
   rehype-katex@7.0.1:
     resolution: {integrity: sha512-OiM2wrZ/wuhKkigASodFoo8wimG3H12LWQaH8qSPVJn9apWKFSH3YOCtbKpBorTVw/eI7cuT21XBbvwEswbIOA==}
-
-  rehype-stringify@10.0.1:
-    resolution: {integrity: sha512-k9ecfXHmIPuFVI61B9DeLPN0qFHfawM6RsuX48hoqlaKSF61RskNjSm1lI8PhBEM0MRdLxVVm4WmTqJQccH9mA==}
 
   remark-breaks@4.0.0:
     resolution: {integrity: sha512-IjEjJOkH4FuJvHZVIW0QCDWxcG96kCq7An/KVH2NfJe6rKZU2AsHeB3OEjPNRxi4QC34Xdx7I2KGYn6IpT7gxQ==}
@@ -12062,6 +12069,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@vitejs/plugin-vue@2.3.4(vite@5.4.21(@types/node@24.10.1)(sass@1.95.0))(vue@3.5.25(typescript@5.9.3))':
+    dependencies:
+      vite: 5.4.21(@types/node@24.10.1)(sass@1.95.0)
+      vue: 3.5.25(typescript@5.9.3)
+
   '@vitejs/plugin-vue@2.3.4(vite@7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3))':
     dependencies:
       vite: 7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2)
@@ -12246,12 +12258,12 @@ snapshots:
     transitivePeerDependencies:
       - vue
 
-  '@vue-macros/devtools@0.4.1(typescript@5.9.3)(vite@7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2))':
+  '@vue-macros/devtools@0.4.1(typescript@5.9.3)(vite@5.4.21(@types/node@24.10.1)(sass@1.95.0))':
     dependencies:
       sirv: 3.0.2
       vue: 3.5.25(typescript@5.9.3)
     optionalDependencies:
-      vite: 7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2)
+      vite: 5.4.21(@types/node@24.10.1)(sass@1.95.0)
     transitivePeerDependencies:
       - typescript
 
@@ -15127,6 +15139,8 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
+  hast@1.0.0: {}
+
   hastscript@9.0.1:
     dependencies:
       '@types/hast': 3.0.4
@@ -17481,12 +17495,6 @@ snapshots:
       unist-util-visit-parents: 6.0.2
       vfile: 6.0.3
 
-  rehype-stringify@10.0.1:
-    dependencies:
-      '@types/hast': 3.0.4
-      hast-util-to-html: 9.0.5
-      unified: 11.0.5
-
   remark-breaks@4.0.0:
     dependencies:
       '@types/mdast': 4.0.4
@@ -18613,12 +18621,12 @@ snapshots:
       rollup: 2.79.2
       vite: 7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2)
 
-  unplugin-combine@1.2.1(esbuild@0.27.1)(rollup@4.53.3)(unplugin@1.16.1)(vite@7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2)):
+  unplugin-combine@1.2.1(esbuild@0.27.1)(rollup@4.53.3)(unplugin@1.16.1)(vite@5.4.21(@types/node@24.10.1)(sass@1.95.0)):
     optionalDependencies:
       esbuild: 0.27.1
       rollup: 4.53.3
       unplugin: 1.16.1
-      vite: 7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2)
+      vite: 5.4.21(@types/node@24.10.1)(sass@1.95.0)
 
   unplugin-vue-define-options@0.11.2:
     dependencies:
@@ -18654,7 +18662,7 @@ snapshots:
       - vite
       - webpack
 
-  unplugin-vue-macros@2.14.5(@vueuse/core@10.11.1(vue@3.5.25(typescript@5.9.3)))(esbuild@0.27.1)(rollup@4.53.3)(typescript@5.9.3)(vite@7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3)):
+  unplugin-vue-macros@2.14.5(@vueuse/core@10.11.1(vue@3.5.25(typescript@5.9.3)))(esbuild@0.27.1)(rollup@4.53.3)(typescript@5.9.3)(vite@5.4.21(@types/node@24.10.1)(sass@1.95.0))(vue@3.5.25(typescript@5.9.3)):
     dependencies:
       '@vue-macros/better-define': 1.11.4(vue@3.5.25(typescript@5.9.3))
       '@vue-macros/boolean-prop': 0.5.5(vue@3.5.25(typescript@5.9.3))
@@ -18669,7 +18677,7 @@ snapshots:
       '@vue-macros/define-render': 1.6.6(vue@3.5.25(typescript@5.9.3))
       '@vue-macros/define-slots': 1.2.6(vue@3.5.25(typescript@5.9.3))
       '@vue-macros/define-stylex': 0.2.3(vue@3.5.25(typescript@5.9.3))
-      '@vue-macros/devtools': 0.4.1(typescript@5.9.3)(vite@7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2))
+      '@vue-macros/devtools': 0.4.1(typescript@5.9.3)(vite@5.4.21(@types/node@24.10.1)(sass@1.95.0))
       '@vue-macros/export-expose': 0.3.5(vue@3.5.25(typescript@5.9.3))
       '@vue-macros/export-props': 0.6.5(vue@3.5.25(typescript@5.9.3))
       '@vue-macros/export-render': 0.3.5(vue@3.5.25(typescript@5.9.3))
@@ -18686,7 +18694,7 @@ snapshots:
       '@vue-macros/short-vmodel': 1.5.5(vue@3.5.25(typescript@5.9.3))
       '@vue-macros/volar': 0.30.15(typescript@5.9.3)(vue@3.5.25(typescript@5.9.3))
       unplugin: 1.16.1
-      unplugin-combine: 1.2.1(esbuild@0.27.1)(rollup@4.53.3)(unplugin@1.16.1)(vite@7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2))
+      unplugin-combine: 1.2.1(esbuild@0.27.1)(rollup@4.53.3)(unplugin@1.16.1)(vite@5.4.21(@types/node@24.10.1)(sass@1.95.0))
       unplugin-vue-define-options: 1.5.5(vue@3.5.25(typescript@5.9.3))
       vue: 3.5.25(typescript@5.9.3)
     transitivePeerDependencies:
@@ -18868,13 +18876,13 @@ snapshots:
       tsx: 4.21.0
       yaml: 2.8.2
 
-  vitepress-plugin-group-icons@1.6.5(vite@7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2)):
+  vitepress-plugin-group-icons@1.6.5(vite@5.4.21(@types/node@24.10.1)(sass@1.95.0)):
     dependencies:
       '@iconify-json/logos': 1.2.10
       '@iconify-json/vscode-icons': 1.2.37
       '@iconify/utils': 3.1.0
     optionalDependencies:
-      vite: 7.2.6(@types/node@24.10.1)(jiti@2.6.1)(sass@1.95.0)(tsx@4.21.0)(yaml@2.8.2)
+      vite: 5.4.21(@types/node@24.10.1)(sass@1.95.0)
 
   vitepress-theme-demoblock@3.1.3(@algolia/client-search@5.46.0)(@types/node@24.10.1)(async-validator@4.2.5)(change-case@5.4.4)(postcss@8.5.6)(sass@1.95.0)(search-insights@2.17.3)(typescript@5.9.3):
     dependencies:
