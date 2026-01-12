@@ -12,4 +12,3 @@ Oxc、Prettier - Code formatter
 11. 思维导图不传图片，不显示图片
 12. mermaid控制，全屏的时候放到body下
 13. event.type === 'wheel' mermaid 禁止滚动这里看下
-14. mermaid 文字调整，查看代码、切换预览文字

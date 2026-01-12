@@ -75,7 +75,7 @@
             ></span>
           </Tooltip>
           <div :class="ns.em('toolbar', 'item')" @click="toggleView">
-            {{ t('el.codeMermaid.preview', '预览') }}
+            {{ t('el.codeMermaid.viewCode', '查看代码') }}
           </div>
         </template>
         <template v-else>
