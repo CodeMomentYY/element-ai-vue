@@ -53,7 +53,6 @@ export const useChatScroll = (
   }
 
   useEventListener(scrollContentRef, 'wheel', cacleAutoScroll)
-  useEventListener(scrollContentRef, 'scroll', cacleAutoScroll)
 
   /** 处理ios问题 ，在惯性滚动期间，scroll 事件可能延迟触发或在滚动停止后才触发*/
   useEventListener(scrollContentRef, 'touchstart', onTouchStart)
@@ -98,7 +97,7 @@ export const useChatScroll = (
         if (stopAutoScroll.value) return
         autoScrollToBottom()
       },
-      80,
+      100,
       {
         trailing: true,
         leading: true,
